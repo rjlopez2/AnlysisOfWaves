@@ -1,3 +1,12 @@
+#' Theme aesthetics for scatter plots in publication
+#'
+#' @param base_size an integer. Specify the font and other element's size.
+#'
+#' @return A plot with modified aesthetics theme.
+#' @export
+#' @details This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.
+#' @examples
+#'
 pptx_presentation_theme_func <- function(base_size = 15){
   structure(list(
     axis.title = element_text(size = base_size * 1.2 ,
