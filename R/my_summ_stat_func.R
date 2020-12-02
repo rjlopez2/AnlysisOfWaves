@@ -1,16 +1,16 @@
 #' Compute summary statistics of multiples variables
 #'
 #' Compute the summary statistics of the multiples variables from the wave analysis from a previosly cleaned dataset
+#'
 #' @importFrom magrittr %>%
 #' @name %>%
 #' @rdname pipe
-#'
 #' @param my_dataset A dataframe prevously cleaned with the fucntion "lalala".
 #'
 #' @return compute the mean, median, SD, SEM, number of waves, number of cells, number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
 #' @export
 #'
-#' @examples
+#' @examples # The example is still missing...
 my_summ_stat_func <- function(my_dataset){
 
   my_funs_names <- c("mean", "sd", "sem", "median", "n_Waves", "Normality_Shapiro_p")
