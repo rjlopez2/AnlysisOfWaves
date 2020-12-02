@@ -17,7 +17,7 @@
 #' @return A ggplot object with boxplot + jitter scatter plot.
 #' @export
 #'
-#' @examples # # The example is still missing...
+#' @examples # The example is still missing...
 my_boxplot_and_jitter_func <- function(dataset,
                                        xaxe = "Animal",
                                        yaxe,
