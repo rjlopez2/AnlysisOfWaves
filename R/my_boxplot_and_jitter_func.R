@@ -1,6 +1,6 @@
 #' Boxplot with jitter scatter points
 #'
-#' This function makes a boxplot and jitter plot for animal comparisons.
+#' This function makes a boxplot and jitter plot for animal comparisons. It needs at least two variable x, y to be plotted.
 #'
 #' @param dataset A dataframe.
 #' @param xaxe String. name of the variable in the x axis.
@@ -14,7 +14,7 @@
 #' @param .dot_size Double. Define the size of the scatter points.
 #' @param ... Other parameters to pass to the function.
 #'
-#' @return
+#' @return A ggplot object with boxplot + jitter scatter plot.
 #' @export
 #'
 #' @examples # # The example is still missing...
@@ -68,7 +68,7 @@ my_boxplot_and_jitter_func <- function(dataset,
     #              show.legend = F,
     #              aes( label = round(..y.., digits = 2))) +
 
-    ggplot2::facet_grid(reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
+    ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
     # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
     pptx_presentation_theme_func(...) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
