@@ -1,4 +1,4 @@
-#' Multiples Plots
+#' Multiple Plots
 #'
 #' Plots multiples variables (eg. scatter plots) from a dataframe and a plotting function.
 #'
