@@ -7,11 +7,10 @@
 #' @export
 #'
 #' @examples
-#'
 #' x <- c(0:10)
-#' sem_x <- sem(x)
+#' sem_x <- sem_func(x)
 #'
 sem_func <- function(x, na.rm=TRUE) { # no implemented in the main function yet
-  if (na.rm) x <- na.omit(x)
-  sqrt(var(x)/length(x))
+  if (na.rm) x <- stats::na.omit(x)
+  sqrt(stats::var(x)/length(x))
 }
