@@ -2,7 +2,7 @@
 % Please edit documentation in R/pptx_presentation_theme_func.R
 \name{pptx_presentation_theme_func}
 \alias{pptx_presentation_theme_func}
-\title{Theme aesthetics for scatter plots in publication}
+\title{Plot theme for publication}
 \usage{
 pptx_presentation_theme_func(base_size = 15)
 }
@@ -13,7 +13,7 @@ pptx_presentation_theme_func(base_size = 15)
 A plot with modified aesthetics theme.
 }
 \description{
-Theme aesthetics for scatter plots in publication
+Modify default ggplot object aesthetics for the paper.
 }
 \details{
 This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.

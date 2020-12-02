@@ -1,5 +1,7 @@
 #' Plot theme for publication
 #'
+#' Modify default ggplot object aesthetics for the paper.
+#'
 #' @param base_size An integer. Specify the font and other element's size.
 #'
 #' @return A plot with modified aesthetics theme.
