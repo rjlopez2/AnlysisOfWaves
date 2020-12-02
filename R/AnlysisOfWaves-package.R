@@ -4,6 +4,7 @@
 #' @rdname pipe
 #' @import dplyr
 #' @import tidyr
+#' @import stringr
 "_PACKAGE"
 # allowing for the use of the dot when piping
 utils::globalVariables(".")
