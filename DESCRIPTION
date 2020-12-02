@@ -8,6 +8,8 @@ Authors@R:
            email = "rjlopez2@gmail.com",
            comment = c(ORCID = "0000-0002-3802-3158"))
 Description: What the package does (one paragraph).
+Imports: 
+    ggplot2
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

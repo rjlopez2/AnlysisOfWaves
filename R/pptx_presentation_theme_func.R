@@ -7,7 +7,7 @@
 #' @return A plot with modified aesthetics theme.
 #' @export
 #' @details This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.
-#' @examples
+#' @examples #The example is still missing...
 #'
 pptx_presentation_theme_func <- function(base_size = 15){
   structure(list(

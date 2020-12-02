@@ -19,5 +19,6 @@ Modify default ggplot object aesthetics for the paper.
 This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.
 }
 \examples{
+#The example is still missing...
 
 }
