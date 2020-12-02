@@ -17,10 +17,10 @@ my_summ_stat_func <- function(my_dataset){
 
     summarise_if(is.numeric, .funs = funs(n_Waves = length,
                                           mean = mean,
-                                          sd = sd,
+                                          sd = stats::sd,
                                           sem = sem_func,
-                                          median = median,
-                                          Normality_Shapiro_p = shapiro.test(.)$p.value)) %>%
+                                          median = stats::median,
+                                          Normality_Shapiro_p = stats::shapiro.test(.)$p.value)) %>%
 
     pivot_longer(cols = contains(paste("_", my_funs_names, sep = "")),
                  names_to = "Parameters") %>%
