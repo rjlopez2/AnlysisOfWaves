@@ -3,16 +3,16 @@
 #' This function makes a boxplot and jitter plot for animal comparisons.
 #'
 #' @param dataset A dataframe.
-#' @param xaxe String. name of the variable in the x axis. Default to "Animal".
+#' @param xaxe String. name of the variable in the x axis.
 #' @param yaxe String. name of the variable in the y axis.
-#' @param box_color String. Defining the color for whisker box. Default to "Animal".
-#' @param scatt_color String. Defining the color for scatter points. Default to "Animal".
-#' @param faceted_by_1 String. Define facet fro the plotting. Defoult to "Treatment + Condition".
-#' @param faceted_by_2
-#' @param jitter_width
-#' @param .alpha
-#' @param .dot_size
-#' @param ...
+#' @param box_color String. Defining the color for whisker box.
+#' @param scatt_color String. Defining the color for scatter points.
+#' @param faceted_by_1 String. Define facet for plotting.
+#' @param faceted_by_2 String. Define facet for plotting.
+#' @param jitter_width Double. Define how big is the with of the scatter points.
+#' @param .alpha Double. Define transparency for your scatter points.
+#' @param .dot_size Double. Define the size of the scatter points.
+#' @param ... Other parameters to pass to the function.
 #'
 #' @return
 #' @export
@@ -54,7 +54,7 @@ my_boxplot_and_jitter_func <- function(dataset,
                position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
                                                seed = 999),
                show.legend = F) +
-    ggplot2::stat_compare_means(paired = F, # this compute p.values
+    ggpubr::stat_compare_means(paired = F, # this compute p.values
                        show.legend = F,
                        # label = "p.signif", # this shows the "*" symbols significance code
                        label.x.npc = "centre",
