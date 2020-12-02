@@ -14,4 +14,6 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
 Imports: 
-    ggplot2
+    ggplot2,
+    ggpubr,
+    stats
