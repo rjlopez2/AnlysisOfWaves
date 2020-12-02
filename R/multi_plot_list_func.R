@@ -15,7 +15,7 @@
 #'
 multi_plot_list_func <- function(my_dataset, yaxe_vars, my_plot_fun, ...){
 
-  map(yaxe_vars, function(.var){
+  purrr::map(yaxe_vars, function(.var){
     my_plot_fun(dataset = my_dataset,
                 yaxe = .var,
                 ...)
