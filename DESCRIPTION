@@ -17,4 +17,5 @@ Imports:
     ggplot2,
     ggpubr,
     stats,
-    purrr
+    purrr,
+    magrittr
