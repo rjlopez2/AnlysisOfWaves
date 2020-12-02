@@ -2,7 +2,7 @@
 % Please edit documentation in R/pptx_presentation_theme_func.R
 \name{pptx_presentation_theme_func}
 \alias{pptx_presentation_theme_func}
-\title{Plot theme for publication}
+\title{Ploting theme for figures}
 \usage{
 pptx_presentation_theme_func(base_size = 15)
 }

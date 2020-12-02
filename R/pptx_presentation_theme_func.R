@@ -1,6 +1,6 @@
-#' Plot theme for publication
+#' Ploting theme for figures
 #'
-#' Modify default ggplot2 object aesthetics for the paper.
+#' Modify default ggplot2 object aesthetics for the figures of the paper.
 #'
 #' @param base_size An integer. Specify the font and other element's size.
 #'
