@@ -1,6 +1,6 @@
-#' Theme aesthetics for scatter plots in publication
+#' Plot theme for publication
 #'
-#' @param base_size an integer. Specify the font and other element's size.
+#' @param base_size An integer. Specify the font and other element's size.
 #'
 #' @return A plot with modified aesthetics theme.
 #' @export
