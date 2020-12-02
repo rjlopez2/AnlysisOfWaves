@@ -19,3 +19,5 @@ Imports:
     stats,
     purrr,
     magrittr
+Suggests: 
+    testthat
