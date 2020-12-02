@@ -42,10 +42,10 @@ my_boxplot_and_jitter_func(
 \item{...}{Other parameters to pass to the function.}
 }
 \value{
-
+A ggplot object with boxplot + jitter scatter plot.
 }
 \description{
-This function makes a boxplot and jitter plot for animal comparisons.
+This function makes a boxplot and jitter plot for animal comparisons. It needs at least two variable x, y to be plotted.
 }
 \examples{
 # # The example is still missing...
