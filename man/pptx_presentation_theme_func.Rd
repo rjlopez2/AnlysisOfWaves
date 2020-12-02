@@ -13,12 +13,12 @@ pptx_presentation_theme_func(base_size = 15)
 A plot with modified aesthetics theme.
 }
 \description{
-Modify default ggplot object aesthetics for the paper.
+Modify default ggplot2 object aesthetics for the paper.
 }
 \details{
-This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.
+This take a ggplot2 object, usually a scatter plot and change the theme to almost totally clear.
 }
 \examples{
-#The example is still missing...
+# The example is still missing...
 
 }

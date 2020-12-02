@@ -1,36 +1,36 @@
 #' Plot theme for publication
 #'
-#' Modify default ggplot object aesthetics for the paper.
+#' Modify default ggplot2 object aesthetics for the paper.
 #'
 #' @param base_size An integer. Specify the font and other element's size.
 #'
 #' @return A plot with modified aesthetics theme.
 #' @export
-#' @details This take a ggplot object, usually a scatter plot and change the theme to almost totally clear.
-#' @examples #The example is still missing...
+#' @details This take a ggplot2 object, usually a scatter plot and change the theme to almost totally clear.
+#' @examples # The example is still missing...
 #'
 pptx_presentation_theme_func <- function(base_size = 15){
   structure(list(
-    axis.title = element_text(size = base_size * 1.2 ,
+    axis.title = ggplot2::element_text(size = base_size * 1.2 ,
                               vjust = 1),
-    axis.text = element_text(size = base_size * 0.8 ,
+    axis.text = ggplot2::element_text(size = base_size * 0.8 ,
                              vjust = 1,
                              colour = "black"),
-    panel.border = element_blank(),
-    panel.background = element_blank(),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    strip.background = element_blank(),
-    strip.text = element_text(size = base_size * 0.8 ,
+    panel.border = ggplot2::element_blank(),
+    panel.background = ggplot2::element_blank(),
+    panel.grid.major = ggplot2::element_blank(),
+    panel.grid.minor = ggplot2::element_blank(),
+    strip.background = ggplot2::element_blank(),
+    strip.text = ggplot2::element_text(size = base_size * 0.8 ,
                               face = "bold",
                               vjust = 1),
-    axis.line = element_line(colour = "black",
+    axis.line = ggplot2::element_line(colour = "black",
                              size = base_size / 15,
                              lineend = "round"),
-    axis.ticks = element_line(size = base_size / 15,
+    axis.ticks = ggplot2::element_line(size = base_size / 15,
                               lineend = "round",
                               colour = "black"),
-    axis.title.x=element_blank()
+    axis.title.x=ggplot2::element_blank()
 
 
 
