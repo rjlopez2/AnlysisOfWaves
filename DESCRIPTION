@@ -16,4 +16,5 @@ RoxygenNote: 7.1.1.9000
 Imports: 
     ggplot2,
     ggpubr,
-    stats
+    stats,
+    purrr
