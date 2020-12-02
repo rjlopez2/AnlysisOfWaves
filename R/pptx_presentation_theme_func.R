@@ -1,4 +1,4 @@
-#' Ploting theme for figures
+#' Plotting theme for figures
 #'
 #' Modify default ggplot2 object aesthetics for the figures of the paper.
 #'
