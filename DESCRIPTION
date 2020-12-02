@@ -1,12 +1,15 @@
 Package: AnlysisOfWaves
-Type: Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication
-Title: What the Package Does (Title Case)
-Version: 0.0.1
-Author: 
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Ruben",
+           family = "Lopez",
+           role = c("aut", "cre"),
+           email = "rjlopez2@gmail.com",
+           comment = c(ORCID = "0000-0002-3802-3158"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
