@@ -1,11 +1,13 @@
 #' Boxplot with jitter scatter points
 #'
-#' @param dataset
-#' @param xaxe
-#' @param yaxe
-#' @param box_color
-#' @param scatt_color
-#' @param faceted_by_1
+#' This function makes a boxplot and jitter plot for animal comparisons.
+#'
+#' @param dataset A dataframe.
+#' @param xaxe String. name of the variable in the x axis. Default to "Animal".
+#' @param yaxe String. name of the variable in the y axis.
+#' @param box_color String. Defining the color for whisker box. Default to "Animal".
+#' @param scatt_color String. Defining the color for scatter points. Default to "Animal".
+#' @param faceted_by_1 String. Define facet fro the plotting. Defoult to "Treatment + Condition".
 #' @param faceted_by_2
 #' @param jitter_width
 #' @param .alpha
@@ -16,7 +18,7 @@
 #' @export
 #'
 #' @examples # # The example is still missing...
-my_boxplot_and_jitter_func <- function(dataset, # this function makes a boxplot and jitter plot for animal comparison
+my_boxplot_and_jitter_func <- function(dataset,
                                        xaxe = "Animal",
                                        yaxe,
                                        box_color  = "Animal",
@@ -31,10 +33,10 @@ my_boxplot_and_jitter_func <- function(dataset, # this function makes a boxplot 
   scatt_color <- paste0("interaction(", paste0(scatt_color, collapse =  ", "), ")")
   box_color <- paste0("interaction(", paste0(box_color, collapse =  ", "), ")")
 
-  ggplot(data = dataset,
-         aes_string(x = xaxe,
+  ggplot2::ggplot(data = dataset,
+                  ggplot2::aes_string(x = xaxe,
                     y = yaxe)) +
-    geom_boxplot(aes_string(color = box_color),
+    ggplot2::geom_boxplot(ggplot2::aes_string(color = box_color),
                  outlier.shape = NA,
                  lwd = 1,
                  show.legend = F) +
@@ -43,16 +45,16 @@ my_boxplot_and_jitter_func <- function(dataset, # this function makes a boxplot 
     # geom_boxplot(aes(color = {{box_color}}),
     #              outlier.shape = NA, # Remove outlier
     #              show.legend = F) +
-    geom_point(shape = 21,
+    ggplot2::geom_point(shape = 21,
                size = .dot_size,
-               aes_string(fill = box_color,
+               ggplot2::aes_string(fill = box_color,
                           group = scatt_color),
                color = "black",
                alpha = .alpha,
-               position = position_jitterdodge(jitter.width = jitter_width,  # add jitter
+               position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
                                                seed = 999),
                show.legend = F) +
-    stat_compare_means(paired = F, # this compute p.values
+    ggplot2::stat_compare_means(paired = F, # this compute p.values
                        show.legend = F,
                        # label = "p.signif", # this shows the "*" symbols significance code
                        label.x.npc = "centre",
@@ -66,11 +68,11 @@ my_boxplot_and_jitter_func <- function(dataset, # this function makes a boxplot 
     #              show.legend = F,
     #              aes( label = round(..y.., digits = 2))) +
 
-    facet_grid(reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
+    ggplot2::facet_grid(reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
     # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
     pptx_presentation_theme_func(...) +
-    scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
-    scale_fill_manual(values = c("#666666", "#CC0000"))# + # set to red and black as defoult color for Animals
+    ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
+    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000"))# + # set to red and black as defoult color for Animals
   # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
 
 }
