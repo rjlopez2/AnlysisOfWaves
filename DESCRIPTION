@@ -19,6 +19,7 @@ Imports:
     stats,
     purrr,
     magrittr,
-    dplyr
+    dplyr,
+    tidyr
 Suggests: 
     testthat
