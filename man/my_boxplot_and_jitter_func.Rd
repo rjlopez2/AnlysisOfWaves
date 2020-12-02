@@ -48,5 +48,5 @@ A ggplot object with boxplot + jitter scatter plot.
 This function makes a boxplot and jitter plot for animal comparisons. It needs at least two variable x, y to be plotted.
 }
 \examples{
-# # The example is still missing...
+# The example is still missing...
 }
