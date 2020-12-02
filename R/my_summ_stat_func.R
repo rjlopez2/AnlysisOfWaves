@@ -12,7 +12,7 @@ my_summ_stat_func <- function(my_dataset){
 
   my_funs_names <- c("mean", "sd", "sem", "median", "n_Waves", "Normality_Shapiro_p")
 
-  stats_by_cells <- my_dataset %>% group_by(Animal, Condition) %>%
+  stats_by_cells <- my_dataset %>% group_by(.data$Animal, .data$Condition) %>%
     select(!(starts_with("SR")|starts_with("n_pa"))) %>%
 
     summarise_if(is.numeric, .funs = funs(n_Waves = length,
@@ -24,21 +24,21 @@ my_summ_stat_func <- function(my_dataset){
 
     pivot_longer(cols = contains(paste("_", my_funs_names, sep = "")),
                  names_to = "Parameters") %>%
-    mutate(Stats = str_extract(Parameters, pattern = paste0(my_funs_names, collapse = "|")),
-           Parameters = str_remove(Parameters, pattern = paste0(paste("_", my_funs_names, sep = ""), collapse = "|"))) %>%
-    pivot_wider(names_from = Stats) %>%
-    select(Parameters, Condition, everything()) %>%
-    arrange(Parameters, Condition)
+    mutate(Stats = str_extract(.data$Parameters, pattern = paste0(my_funs_names, collapse = "|")),
+           Parameters = str_remove(.data$Parameters, pattern = paste0(paste("_", my_funs_names, sep = ""), collapse = "|"))) %>%
+    pivot_wider(names_from = .data$Stats) %>%
+    select(.data$Parameters, .data$Condition, everything()) %>%
+    arrange(.data$Parameters, .data$Condition)
 
   cell_no <- my_dataset %>%
-    distinct(Animal, Animal_No, Experiment, Condition, .keep_all = T) %>%
-    group_by(Animal, Condition) %>%
+    distinct(.data$Animal, .data$Animal_No, .data$Experiment, .data$Condition, .keep_all = T) %>%
+    group_by(.data$Animal, .data$Condition) %>%
     summarise(n_Cells = n())
 
 
   animal_no <- my_dataset %>%
-    distinct(Animal, Animal_No) %>%
-    group_by(Animal) %>%
+    distinct(.data$Animal, .data$Animal_No) %>%
+    group_by(.data$Animal) %>%
     summarise(n_Animals = n())
 
   full_table <- full_join(stats_by_cells, cell_no) %>%

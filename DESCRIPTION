@@ -21,6 +21,7 @@ Imports:
     magrittr,
     dplyr,
     tidyr,
-    stringr
+    stringr,
+    rlang
 Suggests: 
     testthat

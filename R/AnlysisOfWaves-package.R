@@ -5,6 +5,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @import stringr
+#' @importFrom rlang .data %||% set_names sym expr enexpr quo enquo parse_expr
 "_PACKAGE"
 # allowing for the use of the dot when piping
 utils::globalVariables(".")
