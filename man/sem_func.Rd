@@ -18,8 +18,7 @@ The SEM from a given vector
 Standard Error of the Mean (SEM)
 }
 \examples{
-
 x <- c(0:10)
-sem_x <- sem(x)
+sem_x <- sem_func(x)
 
 }
