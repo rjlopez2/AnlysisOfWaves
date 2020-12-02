@@ -1,6 +1,9 @@
 #' Compute summary statistics of multiples variables
 #'
 #' Compute the summary statistics of the multiples variables from the wave analysis from a previosly cleaned dataset
+#' @importFrom magrittr %>%
+#' @name %>%
+#' @rdname pipe
 #'
 #' @param my_dataset A dataframe prevously cleaned with the fucntion "lalala".
 #'
