@@ -2,7 +2,7 @@
 % Please edit documentation in R/multi_plot_list_func.R
 \name{multi_plot_list_func}
 \alias{multi_plot_list_func}
-\title{Multiples Plots}
+\title{Multiple Plots}
 \usage{
 multi_plot_list_func(my_dataset, yaxe_vars, my_plot_fun, ...)
 }
