@@ -4,6 +4,8 @@
 #'
 #' @param my_dataset A cleaned dataframe.
 #' @param my_var_set A character vector with the names of variables to test.
+#' @param group_1 Character. the name for the first grouping comparison variable.
+#' @param group_2 Character. the name for the second grouping comparison variable.
 #'
 #' @return # no example made jet.
 #' @export
