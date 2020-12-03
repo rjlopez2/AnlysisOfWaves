@@ -1,0 +1,32 @@
+#' wilcxntest_by_group_multivar_func
+#'
+#' Wilcoxon test for multiples comparison
+#'
+#' @param my_dataset
+#' @param my_var_set
+#'
+#' @return
+#' @export
+#'
+#' @examples
+wilcxntest_by_group_multivar_func <- function(my_dataset, my_var_set,
+                                              group_1 = "Condition",
+                                              group_2 = "Animal"){
+
+  result_table <- map_dfr(my_var_set, function(my_var){
+
+    group_1 <- sym(group_1)
+    group_2 <- sym(group_2)
+    my_var <- sym(my_var)
+
+    my_dataset %>%
+      group_by(!!group_1) %>%
+      pairwise_wilcox_test(formula = formula(expr(!!my_var ~ !!group_2)),
+                           p.adjust.method = "BH",
+                           detailed = TRUE,
+                           paired = FALSE) # this was f**ing tricky to make it work -> check tidy evaluation and fucntions: "expr", "formula", "eval".
+  })
+
+  result_table
+
+}
