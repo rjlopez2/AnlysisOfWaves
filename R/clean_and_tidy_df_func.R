@@ -1,3 +1,14 @@
+#' clean_and_tidy_df_func
+#'
+#' Clean and organize your dataset
+#'
+#' @param my_df A dataframe
+#' @param vars_for_analysis A character vector with variable names to be analyzed.
+#'
+#' @return A clean dataframe ready for statistics analysis or plotting
+#' @export
+#'
+#' @examples # The example is still missing...
 clean_and_tidy_df_func <- function(my_df,
                                    vars_for_analysis = wave_kinet_parameters){
 
