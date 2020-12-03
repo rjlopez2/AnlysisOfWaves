@@ -1,5 +1,5 @@
 Package: AnlysisOfWaves
-Title: Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication
+Title: Make the Analysis of Ca2+ waves
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ruben",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "rjlopez2@gmail.com",
            comment = c(ORCID = "0000-0002-3802-3158"))
-Description: What the package does (one paragraph).
+Description: Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -5,12 +5,12 @@
 \alias{AnlysisOfWaves}
 \alias{AnlysisOfWaves-package}
 \alias{\%>\%}
-\title{AnlysisOfWaves: Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication}
+\title{AnlysisOfWaves: Make the Analysis of Ca2+ waves}
 \usage{
 lhs \%>\% rhs
 }
 \description{
-What the package does (one paragraph).
+Clean, tidy, asses statistics and plot data from Ca2+ waves in the SERCA publication.
 
 See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 }
