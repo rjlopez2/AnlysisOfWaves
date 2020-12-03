@@ -22,7 +22,8 @@ Imports:
     dplyr,
     tidyr,
     stringr,
-    rlang
+    rlang,
+    rstatix
 Suggests: 
     testthat
 Depends: 

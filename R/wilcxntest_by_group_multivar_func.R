@@ -23,7 +23,7 @@ wilcxntest_by_group_multivar_func <- function(my_dataset, my_var_set,
 
     my_dataset %>%
       group_by(!!group_1) %>%
-      stats::pairwise_wilcox_test(stats::formula = formula(expr(!!my_var ~ !!group_2)),
+      rstatix::pairwise_wilcox_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
                            p.adjust.method = "BH",
                            detailed = TRUE,
                            paired = FALSE) # this was f**ing tricky to make it work -> check tidy evaluation and fucntions: "expr", "formula", "eval".
