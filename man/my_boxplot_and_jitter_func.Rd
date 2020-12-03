@@ -10,7 +10,7 @@ my_boxplot_and_jitter_func(
   yaxe,
   box_color = "Animal",
   scatt_color = "Animal",
-  faceted_by_1 = "Treatment + Condition",
+  faceted_by_1 = "Condition",
   faceted_by_2 = ".",
   jitter_width = 0.5,
   .alpha = 0.25,
