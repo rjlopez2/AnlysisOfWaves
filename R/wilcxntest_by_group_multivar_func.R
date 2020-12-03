@@ -7,10 +7,10 @@
 #' @param group_1 Character. the name for the first grouping comparison variable.
 #' @param group_2 Character. the name for the second grouping comparison variable.
 #'
-#' @return # no example made jet.
+#' @return a datatable with the output of the Wilcoxon test
 #' @export
 #'
-#' @examples
+#' @examples # no example made jet.
 wilcxntest_by_group_multivar_func <- function(my_dataset, my_var_set,
                                               group_1 = "Condition",
                                               group_2 = "Animal"){
