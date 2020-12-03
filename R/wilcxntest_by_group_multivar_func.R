@@ -2,10 +2,10 @@
 #'
 #' Wilcoxon test for multiples comparison
 #'
-#' @param my_dataset
-#' @param my_var_set
+#' @param my_dataset A cleaned dataframe.
+#' @param my_var_set A character vector with the names of variables to test.
 #'
-#' @return
+#' @return # no example made jet.
 #' @export
 #'
 #' @examples
