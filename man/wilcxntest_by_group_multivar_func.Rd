@@ -15,6 +15,10 @@ wilcxntest_by_group_multivar_func(
 \item{my_dataset}{A cleaned dataframe.}
 
 \item{my_var_set}{A character vector with the names of variables to test.}
+
+\item{group_1}{Character. the name for the first grouping comparison variable.}
+
+\item{group_2}{Character. the name for the second grouping comparison variable.}
 }
 \value{
 no example made jet.
