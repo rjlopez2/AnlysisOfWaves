@@ -21,8 +21,11 @@ wilcxntest_by_group_multivar_func(
 \item{group_2}{Character. the name for the second grouping comparison variable.}
 }
 \value{
-no example made jet.
+a datatable with the output of the Wilcoxon test
 }
 \description{
 Wilcoxon test for multiples comparison
+}
+\examples{
+# no example made jet.
 }
