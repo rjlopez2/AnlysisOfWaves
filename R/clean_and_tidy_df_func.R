@@ -2,7 +2,7 @@
 #'
 #' Clean and organize your dataset
 #'
-#' @param my_df A dataframe
+#' @param my_df A dataframe from the institute
 #' @param vars_for_analysis A character vector with variable names to be analyzed.
 #'
 #' @return A clean dataframe ready for statistics analysis or plotting
