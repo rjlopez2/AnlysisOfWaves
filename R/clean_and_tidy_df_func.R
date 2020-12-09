@@ -2,7 +2,7 @@
 #'
 #' Clean and organize your dataset
 #'
-#' @param my_df A dataframe with waves raw data. Must contain "Date" and "Experiment" columns.
+#' @param my_df A dataframe with raw data of waves. Must contain "Date" and "Experiment" columns.
 #' @param vars_for_analysis A character vector with variable names to be analyzed.
 #'
 #' @return A cleaned dataframe ready for statistics analysis or plotting and add column "n_paired" for paired experiments.

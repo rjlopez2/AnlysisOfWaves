@@ -7,12 +7,12 @@
 clean_and_tidy_df_func(my_df, vars_for_analysis)
 }
 \arguments{
-\item{my_df}{A dataframe with waves raw data. Must contain "Date" and "Experiment" columns.}
+\item{my_df}{A dataframe with raw data of waves. Must contain "Date" and "Experiment" columns.}
 
 \item{vars_for_analysis}{A character vector with variable names to be analyzed.}
 }
 \value{
-A clean dataframe ready for statistics analysis or plotting and add column "n_paired" for paired experiments.
+A cleaned dataframe ready for statistics analysis or plotting and add column "n_paired" for paired experiments.
 }
 \description{
 Clean and organize your dataset
