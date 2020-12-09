@@ -2,7 +2,7 @@
 #'
 #' This function makes a boxplot and jitter plot for animal comparisons. It needs at least two variable x, y to be plotted.
 #'
-#' @param dataset A dataframe.
+#' @param dataset A dataframe with raw data of waves.
 #' @param xaxe String. name of the variable in the x axis.
 #' @param yaxe String. name of the variable in the y axis.
 #' @param box_color String. Defining the color for whisker box.
