@@ -19,7 +19,7 @@ my_boxplot_and_jitter_func(
 )
 }
 \arguments{
-\item{dataset}{A dataframe.}
+\item{dataset}{A dataframe with raw data of waves.}
 
 \item{xaxe}{String. name of the variable in the x axis.}
 

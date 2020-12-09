@@ -9,7 +9,7 @@ my_cum_occu_wave_plot_func(my_dataset, reffer_wave_thres)
 \arguments{
 \item{my_dataset}{A dataframe with raw data of waves.}
 
-\item{reffer_wave_thres}{A double. Reference value i n seconds indicating the threshold for the calculus of cumulative waves occurrence.}
+\item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.}
 }
 \value{
 A ggplot object (list) ploting cumulative occurrence of waves in the different animals groups.
