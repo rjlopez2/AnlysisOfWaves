@@ -5,7 +5,7 @@
 #' @param my_df A dataframe with waves raw data. Must contain "Date" and "Experiment" columns.
 #' @param vars_for_analysis A character vector with variable names to be analyzed.
 #'
-#' @return A clean dataframe ready for statistics analysis or plotting and add column "n_paired" for paired experiments.
+#' @return A cleaned dataframe ready for statistics analysis or plotting and add column "n_paired" for paired experiments.
 #' @export
 #'
 #' @examples # The example is still missing...
