@@ -7,7 +7,7 @@
 clean_and_tidy_df_func(my_df, vars_for_analysis)
 }
 \arguments{
-\item{my_df}{A dataframe}
+\item{my_df}{A dataframe from the institute}
 
 \item{vars_for_analysis}{A character vector with variable names to be analyzed.}
 }
