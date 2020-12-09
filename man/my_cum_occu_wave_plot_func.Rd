@@ -10,8 +10,6 @@ my_cum_occu_wave_plot_func(my_dataset, reffer_wave_thres)
 \item{my_dataset}{A dataframe with raw data of waves.}
 
 \item{reffer_wave_thres}{A double. Reference value i n seconds indicating the threshold for the calculus of cumulative waves occurrence.}
-
-\item{font_size}{}
 }
 \value{
 
