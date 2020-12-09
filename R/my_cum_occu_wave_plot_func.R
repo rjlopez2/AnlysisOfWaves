@@ -4,12 +4,13 @@
 #'
 #' @param my_dataset A dataframe with raw data of waves.
 #' @param reffer_wave_thres A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.
+#' @param ... ational parameter to be passed to the aesthetic function \code{pptx_presentation_theme_func()}
 #'
 #' @return A ggplot object (list) ploting cumulative occurrence of waves in the different animals groups.
 #' @export
 #'
 #' @examples # The example is still missing...
-my_cum_occu_wave_plot_func <- function(my_dataset, reffer_wave_thres){
+my_cum_occu_wave_plot_func <- function(my_dataset, reffer_wave_thres, ...){
 
   my_cum_occu_plot <- my_dataset %>%
     ggplot2::ggplot(ggplot2::aes(x = .data$Wave_latency)) +
@@ -28,7 +29,7 @@ my_cum_occu_wave_plot_func <- function(my_dataset, reffer_wave_thres){
                        show.legend = T,
                        pad = T,
                        lwd = 1) +
-    pptx_presentation_theme_func() +
+    pptx_presentation_theme_func(...) +
     ggplot2:: scale_colour_manual(values = c("#666666", "#CC0000")) +
     ggplot2::scale_y_continuous(labels = function(x){x*100}) +
     ggplot2::labs(x = "Time (s)", y = "Cumulative wave\noccurrence (%)") +
