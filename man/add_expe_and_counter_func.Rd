@@ -7,11 +7,14 @@
 add_expe_and_counter_func(my_dataset)
 }
 \arguments{
-\item{my_dataset}{}
+\item{my_dataset}{A dataframe containing variables filename.}
 }
 \value{
-
+the dataframe and a new column named "n_paired" with values 1 for non-paired experiment or 2 pro paired experiments.
 }
 \description{
-Add couter for each experiment.
+Add counter for each experiment to asses paired experiment.
+}
+\examples{
+# The example is still missing...
 }
