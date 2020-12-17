@@ -1,6 +1,6 @@
 #' make_profile_func
 #'
-#' Create plot-profile from linescan image
+#' Create plot-profile from a linescan image.
 #'
 #' @param my_dir "A directory with a linescan image in tiff format.
 #'
@@ -14,7 +14,7 @@ make_profile_func <- function(my_dir){
     ijtiff::read_tif() %>%
     `[` ( , , 1, 1) %>%
     rowMeans() %>%
-    dplyr::tibble(Time = 1:length(.data) * 2 / 1000, # set the time in seconds
-           Fluorescence = .data)
+    dplyr::tibble(Time = 1:length(.) * 2 / 1000, # set the time in seconds
+           Fluorescence = .)
 }
 
