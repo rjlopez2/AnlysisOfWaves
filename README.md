@@ -35,4 +35,4 @@ df40_o %>%
 #> $cum_occu_plot
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example-1.png" width="600px" />

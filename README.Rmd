@@ -33,7 +33,7 @@ devtools::install_github("rjlopez2/AnlysisOfWaves")
 
 This is a basic example which shows you how plot the cumulative occurrence of Ca2+ waves obtained from linescan images:
 
-```{r example}
+```{r example, out.width = "600px"}
 library(AnlysisOfWaves)
 
 time_threshold <- 10 # Set time for highlighting the relative wave occurrence.
