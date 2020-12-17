@@ -13,7 +13,7 @@ make_profile_func(my_dir)
 two vector: "Time" in ms and "Fluorescence" the signal in AU.
 }
 \description{
-Create plot-profile from linescan image
+Create plot-profile from a linescan image.
 }
 \examples{
 # example missing.

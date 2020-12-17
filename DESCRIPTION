@@ -24,7 +24,8 @@ Imports:
     stringr,
     rlang,
     rstatix,
-    ijtiff
+    ijtiff,
+    forcats
 Suggests: 
     testthat
 Depends: 
