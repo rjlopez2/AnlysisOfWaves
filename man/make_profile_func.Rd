@@ -7,10 +7,10 @@
 make_profile_func(my_dir)
 }
 \arguments{
-\item{my_dir}{"A directory with a linescan image in tiff format.}
+\item{my_dir}{A directory with a linescan image in tiff format.}
 }
 \value{
-two vector: "Time" in ms and "Fluorescence" the signal in AU.
+A dataframe with two variables: "Time" in ms and the signal "Fluorescence" in AU.
 }
 \description{
 Create plot-profile from a linescan image.

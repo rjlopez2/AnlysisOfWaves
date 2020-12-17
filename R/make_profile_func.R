@@ -2,9 +2,9 @@
 #'
 #' Create plot-profile from a linescan image.
 #'
-#' @param my_dir "A directory with a linescan image in tiff format.
+#' @param my_dir A directory with a linescan image in tiff format.
 #'
-#' @return two vector: "Time" in ms and "Fluorescence" the signal in AU.
+#' @return A dataframe with two variables: "Time" in ms and the signal "Fluorescence" in AU.
 #' @export
 #'
 #' @examples # example missing.
