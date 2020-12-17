@@ -23,7 +23,8 @@ Imports:
     tidyr,
     stringr,
     rlang,
-    rstatix
+    rstatix,
+    ijtiff
 Suggests: 
     testthat
 Depends: 

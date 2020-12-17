@@ -2,6 +2,7 @@
 
 export("%>%")
 export(clean_and_tidy_df_func)
+export(make_profile_func)
 export(multi_plot_list_func)
 export(my_boxplot_and_jitter_func)
 export(my_cum_occu_wave_plot_func)
