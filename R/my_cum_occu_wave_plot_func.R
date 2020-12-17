@@ -33,8 +33,7 @@ my_cum_occu_wave_plot_func <- function(my_dataset, reffer_wave_thres, ...){
     ggplot2:: scale_colour_manual(values = c("#666666", "#CC0000")) +
     ggplot2::scale_y_continuous(labels = function(x){x*100}) +
     ggplot2::labs(x = "Time (s)", y = "Cumulative wave\noccurrence (%)") +
-    ggplot2::theme(legend.position = c(1, 0.4),
-                   legend.key=ggplot2::element_blank())
+    ggplot2::theme(legend.position = c(0.9, 0.3))
   # theme(legend.key=element_blank())
 
   return(list(cum_occu_plot = my_cum_occu_plot))
