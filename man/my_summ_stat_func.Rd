@@ -4,10 +4,12 @@
 \alias{my_summ_stat_func}
 \title{Compute summary statistics of multiples variables}
 \usage{
-my_summ_stat_func(my_dataset)
+my_summ_stat_func(my_dataset, vars_prefix_to_summ = c("Cyto", "SR"))
 }
 \arguments{
 \item{my_dataset}{A dataframe prevously cleaned with the fucntion "lalala".}
+
+\item{vars_prefix_to_summ}{a string indicating which variables you want to summarize. Only one of twon values possible: "Cyto" or "SR".}
 }
 \value{
 compute the mean, median, SD, SEM, number of waves, number of cells, number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
