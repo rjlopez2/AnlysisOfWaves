@@ -16,9 +16,9 @@ wilcxntest_by_group_multivar_func(
 
 \item{my_var_set}{A character vector with the names of variables to test.}
 
-\item{group_1}{Character. the name for the first grouping comparison variable.}
+\item{group_1}{Character of one or more values. The name for the first grouping comparison variable. Default to \code{"Condition"}.}
 
-\item{group_2}{Character. the name for the second grouping comparison variable.}
+\item{group_2}{Character. the name for the second grouping comparison variable. Default to \code{"Animal"}.}
 }
 \value{
 a datatable with the output of the Wilcoxon test
