@@ -7,7 +7,7 @@
 my_summ_stat_func(my_dataset, vars_prefix_to_summ = c("Cyto", "SR"))
 }
 \arguments{
-\item{my_dataset}{A dataframe prevously cleaned with the fucntion "lalala".}
+\item{my_dataset}{A dataframe prevously cleaned with the function \code{clean_and_tidy_df_func()}.}
 
 \item{vars_prefix_to_summ}{a string indicating which variables you want to summarize. Only one of twon values possible: "Cyto" or "SR".}
 }
@@ -15,7 +15,7 @@ my_summ_stat_func(my_dataset, vars_prefix_to_summ = c("Cyto", "SR"))
 compute the mean, median, SD, SEM, number of waves, number of cells, number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
 }
 \description{
-Compute the summary statistics of the multiples variables from the wave analysis from a previosly cleaned dataset
+Compute the summary statistics of the multiples variables from the wave analysis from a previosly cleaned dataset. Compute the \code{mean}, \code{sd}, \code{sem}, \code{median}, \code{n_Waves}, \code{n_Cells}, \code{n_Animals} and \code{Normality_Shapiro_p.} NOTE: Shapiro-Wilk test will fail if less than 2 samples!.
 }
 \examples{
 # The example is still missing...
