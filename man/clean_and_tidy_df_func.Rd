@@ -19,4 +19,5 @@ Clean and organize your dataset
 }
 \examples{
 # The example is still missing...
+
 }
