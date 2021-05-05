@@ -13,18 +13,24 @@ my_summ_stat_func <- function(my_dataset,
                               vars_prefix_to_summ = c("Cyto", "SR")){
 
   if (vars_prefix_to_summ == "Cyto"){
+
     vars_prefix_to_summ <- "SR"
+
   }else if(vars_prefix_to_summ == "SR"){
+
     vars_prefix_to_summ <- "Cyto"
-  }else(stop("You must select 'Cyto' or 'SR' for the variables to summarize"))
+
+  }else(stop("You must select 'Cyto' or 'SR' for the variables to be summarized"))
 
 
 
   my_funs_names <- c("mean", "sd", "sem", "median", "n_Waves", "Normality_Shapiro_p")
 
-  stats_by_cells <- my_dataset %>% group_by(.data$Animal, .data$Treatment, .data$Condition) %>%
+  stats_by_cells <- my_dataset %>% group_by(across(c(.data$Animal,
+                                                     any_of(.data$Treatment),
+                                                     .data$Condition))) %>%
     select(!(starts_with(vars_prefix_to_summ)|starts_with("n_pa"))) %>%
-
+    #
     summarise_if(is.numeric, .funs = list(n_Waves = ~ length(.x),
                                           mean = ~ mean(.x),
                                           sd = ~ stats::sd(.x),
@@ -32,23 +38,44 @@ my_summ_stat_func <- function(my_dataset,
                                           median = ~ stats::median(.x),
                                           Normality_Shapiro_p = ~ stats::shapiro.test(.x)$p.value)) %>%
 
-    pivot_longer(cols = contains(paste("_", my_funs_names, sep = "")),
+    pivot_longer(cols = contains(paste("_",
+                                       my_funs_names,
+                                       sep = "")),
                  names_to = "Parameters") %>%
-    mutate(Stats = str_extract(.data$Parameters, pattern = paste0(my_funs_names, collapse = "|")),
-           Parameters = str_remove(.data$Parameters, pattern = paste0(paste("_", my_funs_names, sep = ""), collapse = "|"))) %>%
+    mutate(Stats = str_extract(.data$Parameters,
+                               pattern = paste0(my_funs_names,
+                                                collapse = "|")),
+           Parameters = str_remove(.data$Parameters,
+                                   pattern = paste0(paste("_",
+                                                          my_funs_names,
+                                                          sep = ""),
+                                                    collapse = "|"))) %>%
     pivot_wider(names_from = .data$Stats) %>%
-    select(.data$Parameters, .data$Treatment, .data$Condition, everything()) %>%
-    arrange(.data$Parameters, .data$Treatment, .data$Condition)
+    select(.data$Parameters,
+           any_of(.data$Treatment),
+           .data$Condition,
+           everything()) %>%
+    arrange(across(c(.data$Parameters,
+                     any_of(.data$Treatment),
+                     .data$Condition)))
 
   cell_no <- my_dataset %>%
-    group_by(.data$Animal, .data$Condition, .data$Treatment) %>%
-    distinct(.data$Animal, .data$Condition, .data$Animal_No, .data$Experiment) %>%
+    group_by(across(c(.data$Animal,
+                      .data$Condition,
+                      any_of(.data$Treatment)))) %>%
+    distinct(.data$Animal,
+             .data$Condition,
+             .data$Animal_No,
+             .data$Experiment) %>%
     summarise(n_Cells = n())
 
 
   animal_no <- my_dataset %>%
-    group_by(.data$Animal, .data$Condition) %>%
-    distinct(.data$Animal, .data$Condition, .data$Animal_No) %>%
+    group_by(.data$Animal,
+             .data$Condition) %>%
+    distinct(.data$Animal,
+             .data$Condition,
+             .data$Animal_No) %>%
     summarise(n_Animals = n())
 
   full_table <- full_join(stats_by_cells, cell_no) %>%
