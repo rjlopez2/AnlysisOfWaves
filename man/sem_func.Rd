@@ -4,12 +4,12 @@
 \alias{sem_func}
 \title{Standard Error of the Mean (SEM)}
 \usage{
-sem_func(x, na.rm = TRUE)
+sem_func(x, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A numeric vector.}
 
-\item{na.rm}{should the NA values be removed?}
+\item{na.rm}{Boolean. Should the NA values be removed? defoult to FALSE.}
 }
 \value{
 The SEM from a given vector
