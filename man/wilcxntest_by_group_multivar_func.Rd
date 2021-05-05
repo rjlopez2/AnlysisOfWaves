@@ -8,7 +8,8 @@ wilcxntest_by_group_multivar_func(
   my_dataset,
   my_var_set,
   group_1 = c("Treatment", "Condition"),
-  group_2 = "Animal"
+  group_2 = "Animal",
+  p_adj_met = "BH"
 )
 }
 \arguments{
@@ -18,7 +19,9 @@ wilcxntest_by_group_multivar_func(
 
 \item{group_1}{Character of one or more values. The name for the first grouping comparison variable. Default to \code{c("Treatment", "Condition")}.}
 
-\item{group_2}{Character. the name for the second grouping comparison variable. Default to \code{"Animal"}.}
+\item{group_2}{Character. The name for the second grouping comparison variable. Default to \code{"Animal"}.}
+
+\item{p_adj_met}{Character. One of the following methods p adjust methods: \verb{c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"}. Defoult to \verb{"BH}. for more info look at \code{p.adjust.methods}.}
 }
 \value{
 a datatable with the output of the Wilcoxon test
@@ -28,4 +31,5 @@ Wilcoxon test for multiples comparison
 }
 \examples{
 # no example made jet.
+
 }
