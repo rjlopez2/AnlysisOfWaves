@@ -25,7 +25,9 @@ Imports:
     rlang,
     rstatix,
     ijtiff,
-    forcats
+    forcats,
+    tidyselect,
+    utils
 Suggests: 
     testthat
 Depends: 
