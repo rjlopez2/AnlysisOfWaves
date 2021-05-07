@@ -30,4 +30,4 @@
 #'
 #'
 #' @source Department of Physiology, University of Bern
-"df40_o"
+"df_waves_intact_cells"
