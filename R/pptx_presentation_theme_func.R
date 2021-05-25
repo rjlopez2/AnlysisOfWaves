@@ -29,8 +29,8 @@ pptx_presentation_theme_func <- function(base_size = 15){
                              lineend = "round"),
     axis.ticks = ggplot2::element_line(size = base_size / 15,
                               lineend = "round",
-                              colour = "black"),
-    axis.title.x=ggplot2::element_blank()
+                              colour = "black")
+    # axis.title.x=ggplot2::element_blank()
 
 
 
