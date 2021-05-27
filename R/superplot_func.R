@@ -20,7 +20,7 @@
 #'
 #' @examples # The example is still missing...
 
-superplot_func_test <- function(dataset, xaxe, yaxe,
+superplot_func <- function(dataset, xaxe, yaxe,
                                 faceted_by_1 = "Condition",
                                 faceted_by_2 = ".",
                                 grouping = c("Animal",
