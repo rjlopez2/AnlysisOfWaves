@@ -12,34 +12,37 @@
 #'
 utils::globalVariables("where")
 my_summ_stat_func <- function(my_dataset,
-                                   vars_prefix_to_summ = c("Cyto", "SR"),
-                                   Na_rm = TRUE){
+                              my_grouping_vars = c("Animal", "Treatment", "Condition"),
+                              vars_prefix_to_summ = NULL,
+                              Na_rm = TRUE){
+
+  my_grouping_vars = c("Animal", "Treatment", "Condition")
 
   my_funs_names <- c("mean", "sd", "sem", "median", "n_Waves", "Normality_Shapiro_p")
 
   if (vars_prefix_to_summ == "Cyto"){
 
-    vars_prefix_to_summ <- "SR"
+    no_vars_prefix_to_summ <- "SR"
 
   }else if(vars_prefix_to_summ == "SR"){
 
-    vars_prefix_to_summ <- "Cyto"
+    no_vars_prefix_to_summ <- "Cyto"
 
   }else(stop("You must select 'Cyto' or 'SR' for the variables to be summarized"))
 
   # compute stats
   stats_by_cells <- my_dataset %>%
-    group_by(across(c(.data$Animal,
-                      any_of(.data$Treatment),
-                      .data$Condition))) %>%
-    select(!(starts_with(vars_prefix_to_summ)|starts_with("n_pa"))) %>%
-    summarise_if(is.numeric,
-                 .funs = list(n_Waves = ~ length(.x),
-                              mean = ~ mean(.x, na.rm = Na_rm),
-                              sd = ~ stats::sd(.x, na.rm = Na_rm),
-                              sem = ~ sem_func(.x, na.rm = Na_rm),
-                              median = ~ stats::median(.x, na.rm = Na_rm),
-                              Normality_Shapiro_p = ~ stats::shapiro.test(.x)$p.value))
+    group_by(across(any_of(my_grouping_vars))) %>%
+    select(!(starts_with(no_vars_prefix_to_summ)|starts_with("n_pa"))) %>%
+    summarise(across(is.numeric,
+                     # summarise_if(is.numeric,
+                     list(n_Waves = ~ length(.x),
+                                mean = ~ mean(.x, na.rm = Na_rm),
+                                sd = ~ stats::sd(.x, na.rm = Na_rm),
+                                sem = ~ sem_func(.x, na.rm = Na_rm),
+                                median = ~ stats::median(.x, na.rm = Na_rm),
+                                Normality_Shapiro_p = ~ stats::shapiro.test(.x)$p.value),
+                     .names = "{.col}_{.fn}"))
   # re-arrange table
   rearranged_table <- stats_by_cells %>%
     pivot_longer(cols = ends_with(paste("_",
