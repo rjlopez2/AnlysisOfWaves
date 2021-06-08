@@ -20,7 +20,15 @@ my_summ_stat_func <- function(my_dataset,
 
   my_funs_names <- c("mean", "sd", "sem", "median", "n_Waves", "Normality_Shapiro_p")
 
-  if (vars_prefix_to_summ == "Cyto"){
+  if(is.null(vars_prefix_to_summ)){
+
+    stop("your prefix variable to summarize is empty.You must select 'Cyto' or 'SR' for the variables to be summarized ")
+
+  }else if (!is.character(vars_prefix_to_summ)){
+
+    stop("Your prefix variable to summarize has to be a character. You must select 'Cyto' or 'SR' for the variables to be summarized ")
+
+  }else if (vars_prefix_to_summ == "Cyto"){
 
     no_vars_prefix_to_summ <- "SR"
 
@@ -34,7 +42,7 @@ my_summ_stat_func <- function(my_dataset,
   stats_by_cells <- my_dataset %>%
     group_by(across(any_of(my_grouping_vars))) %>%
     select(!(starts_with(no_vars_prefix_to_summ)|starts_with("n_pa"))) %>%
-    summarise(across(is.numeric,
+    summarise(across(where(is.double),
                      # summarise_if(is.numeric,
                      list(n_Waves = ~ length(.x),
                                 mean = ~ mean(.x, na.rm = Na_rm),
