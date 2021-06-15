@@ -36,3 +36,4 @@ df40_o %>%
 ```
 
 <img src="man/figures/README-example-1.png" width="600px" />
+A line I wrote on my local computer
