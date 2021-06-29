@@ -59,6 +59,10 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
                                                                    paired = FALSE) # this was f**ing tricky to make it work -> check tidy evaluation and functions: "expr", "formula", "eval".
                                  })
 
+  result_table <- result_table %>%
+    dplyr::rename(Parameter = .data$.y.) %>%
+    mutate(p.adjust.method = p_adj_met)
+
   return(result_table)
 
 }
