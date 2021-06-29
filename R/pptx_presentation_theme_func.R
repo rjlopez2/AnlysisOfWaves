@@ -16,8 +16,8 @@ pptx_presentation_theme_func <- function(base_size = 15){
     axis.text = ggplot2::element_text(size = base_size * 0.8 ,
                              vjust = 1,
                              colour = "black"),
-    panel.border = ggplot2::element_blank(),
-    panel.background = ggplot2::element_blank(),
+    # panel.border = ggplot2::element_blank(),
+    # panel.background = ggplot2::element_blank(),
     panel.grid.major = ggplot2::element_blank(),
     panel.grid.minor = ggplot2::element_blank(),
     strip.background = ggplot2::element_blank(),
@@ -29,7 +29,12 @@ pptx_presentation_theme_func <- function(base_size = 15){
                              lineend = "round"),
     axis.ticks = ggplot2::element_line(size = base_size / 15,
                               lineend = "round",
-                              colour = "black")
+                              colour = "black"),
+    panel.border = ggplot2::element_rect(fill = "transparent", color = NA),
+    panel.background = ggplot2::element_rect(fill = "transparent"), # bg of the panel
+    plot.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the plot
+    legend.background = ggplot2::element_rect(fill = "transparent"), # get rid of legend bg
+    legend.box.background = ggplot2::element_rect(fill = "transparent") # get rid of legend panel bg
     # axis.title.x=ggplot2::element_blank()
 
 
