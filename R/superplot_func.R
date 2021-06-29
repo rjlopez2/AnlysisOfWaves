@@ -120,7 +120,7 @@ superplot_func <- function(dataset, xaxe, yaxe,
                                                c1 = 150, c2 = 200) +
     # remove legend
     ggplot2::theme(legend.position="none") +
-    pptx_presentation_theme_func()
+    pptx_presentation_theme_func(...)
 
 
   rm(summ_dataset)
