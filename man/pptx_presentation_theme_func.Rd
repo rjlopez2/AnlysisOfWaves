@@ -4,7 +4,7 @@
 \alias{pptx_presentation_theme_func}
 \title{Plotting theme for figures}
 \usage{
-pptx_presentation_theme_func(base_size = 15)
+pptx_presentation_theme_func(base_size = 18)
 }
 \arguments{
 \item{base_size}{An integer. Specify the font and other element's size.}
