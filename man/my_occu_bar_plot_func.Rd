@@ -4,12 +4,12 @@
 \alias{my_occu_bar_plot_func}
 \title{my_occu_bar_plot_func}
 \usage{
-my_occu_bar_plot_func(my_dataset, reffer_wave_thres, ...)
+my_occu_bar_plot_func(my_dataset, reffer_wave_thres = 10, ...)
 }
 \arguments{
 \item{my_dataset}{A dataframe with raw data of waves.}
 
-\item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.}
+\item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence. Default to 10.}
 
 \item{...}{additional parameter to be passed to the aesthetic function \code{pptx_presentation_theme_func()}}
 }

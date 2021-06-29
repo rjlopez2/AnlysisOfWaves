@@ -3,14 +3,14 @@
 #' bar plot of waves occurrence
 #'
 #' @param my_dataset A dataframe with raw data of waves.
-#' @param reffer_wave_thres A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.
+#' @param reffer_wave_thres A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence. Default to 10.
 #' @param ... additional parameter to be passed to the aesthetic function \code{pptx_presentation_theme_func()}
 #'
 #' @return A ggplot object with barplot of waves occurrence in the different animals groups.
 #' @export
 #'
 #' @examples # The example is still missing...
-my_occu_bar_plot_func <- function(my_dataset, reffer_wave_thres, ...){
+my_occu_bar_plot_func <- function(my_dataset, reffer_wave_thres = 10, ...){
 
   my_bar_plot <- my_dataset %>%
     mutate(new_waves = if_else(.data$Wave_latency <= reffer_wave_thres & !is.na(.data$Wave_latency) & .data$Wave_latency > 0,
