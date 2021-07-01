@@ -45,11 +45,11 @@ my_summ_stat_func <- function(my_dataset,
     summarise(across(where(is.double),
                      # summarise_if(is.numeric,
                      list(n_Waves = ~ length(.x),
-                                mean = ~ mean(.x, na.rm = Na_rm),
-                                sd = ~ stats::sd(.x, na.rm = Na_rm),
-                                sem = ~ sem_func(.x, na.rm = Na_rm),
-                                median = ~ stats::median(.x, na.rm = Na_rm),
-                                Normality_Shapiro_p = ~ stats::shapiro.test(.x)$p.value),
+                          mean = ~ mean(.x, na.rm = Na_rm),
+                          sd = ~ stats::sd(.x, na.rm = Na_rm),
+                          sem = ~ sem_func(.x, na.rm = Na_rm),
+                          median = ~ stats::median(.x, na.rm = Na_rm),
+                          Normality_Shapiro_p = ~ stats::shapiro.test(.x)$p.value),
                      .names = "{.col}_{.fn}"))
   # re-arrange table
   rearranged_table <- stats_by_cells %>%
@@ -68,7 +68,7 @@ my_summ_stat_func <- function(my_dataset,
   cell_no <- my_dataset %>%
     group_by(across(c(.data$Animal,
                       .data$Condition,
-                      any_of(.data$Treatment)))) %>%
+                      any_of(.data$Treatment)))) %>% # fix this one to string
     distinct(.data$Animal,
              .data$Condition,
              .data$Animal_No,
