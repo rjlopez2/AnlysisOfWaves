@@ -56,7 +56,8 @@ superplot_func <- function(dataset, xaxe, yaxe,
     ggplot2::ggplot(data = dataset,
                     ggplot2::aes(x = {{xaxe}},
                                  y = {{yaxe}})) +
-    ggplot2::geom_violin(ggplot2::aes(color = {{xaxe}})) +
+    ggplot2::geom_violin(ggplot2::aes(color = {{xaxe}}),
+                         size = 1) +
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000"))
 
