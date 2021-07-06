@@ -10,7 +10,7 @@
 #' @param wave_size A double. Value assigned to the size of the dots. Default to `2`.
 #' @param wave_alpha A double. Value assigned to the transparency of the dots. Default to `0.4`.
 #'
-#' @return A ggplot object with an dotplot additional layer.
+#' @return A ggplot object with a dotplot additional layer of individual waves datapoint.
 #' @export
 #'
 #' @examples
