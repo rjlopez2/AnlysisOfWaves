@@ -41,7 +41,7 @@ superplot_func <- function(dataset,
   switch (base_violin,
 
           waves = superplot <- dataset %>%
-            cell_layer_vio_ggplot_func(yaxe = yaxe),
+            wave_layer_vio_ggplot_func(yaxe = yaxe),
 
           cells = superplot <- dataset %>%
             cell_layer_vio_ggplot_func(yaxe = yaxe),
