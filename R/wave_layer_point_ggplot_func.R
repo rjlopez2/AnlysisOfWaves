@@ -1,6 +1,6 @@
 #' wave_layer_point_ggplot_func
 #'
-#' Create a dot plot ggplot object layer on a base canvas plot. This function make single waves dot plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function in wrapped inside the final superplot function.
+#' Create a dot plot ggplot object layer on a base canvas plot. This function make single waves dot plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function is wrapped inside the final superplot function.
 #'
 #' @param base_ggplot_obj A ggplot object. the base canvas plot which you want to add the layer to.
 #' @param dataset A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.
