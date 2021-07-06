@@ -18,7 +18,7 @@
 animal_layer_point_ggplot_func <- function(ggplot_obj,
                                            dataset,
                                            xaxe = "Animal",
-                                           colored_by,
+                                           colored_by = "animal_type",
                                            yaxe,
                                            jitter_width = 3.5,
                                            animal_size = 2,
