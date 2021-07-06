@@ -19,18 +19,18 @@
 #' @export
 #'
 #' @examples
-superplot_func_test <- function(dataset,
-                                yaxe,
-                                base_violin = "cells",
-                                plot_type = "cells",
-                                animal_layer = TRUE,
-                                wave_size = 2,
-                                wave_alpha = 0.4,
-                                cell_size = 2.5,
-                                cell_alpha = 0.4,
-                                animal_size = 5,
-                                animal_alpha = 0.6,
-                                base_font_size = 15){
+superplot_func <- function(dataset,
+                           yaxe,
+                           base_violin = "cells",
+                           plot_type = "cells",
+                           animal_layer = TRUE,
+                           wave_size = 2,
+                           wave_alpha = 0.4,
+                           cell_size = 2.5,
+                           cell_alpha = 0.4,
+                           animal_size = 5,
+                           animal_alpha = 0.6,
+                           base_font_size = 15){
 
   ####################################################################################
   ### this function the different plotting layers for the final superplot
