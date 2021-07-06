@@ -1,6 +1,6 @@
 #' cell_layer_vio_ggplot_func
 #'
-#' Create a base canvas violin ggplot  object
+#' Create a base canvas violin ggplot  object. This function make violin plot with aggregated waves (average) at the cellular level. Note: this function is wrapped inside the final superplot function.
 #'
 #' @param dataset A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.
 #' @param yaxe A string. The variable name of interest to plot.
@@ -17,10 +17,6 @@ cell_layer_vio_ggplot_func <- function(dataset,
                                        xaxe = "Animal",
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = "."){
-
-  ####################################################################################
-  ### this function make violin plot with aggregated waves (average) at the cellular level
-  ####################################################################################
 
 
   cell_level_data <- dataset %>%
