@@ -1,8 +1,8 @@
 #' wave_layer_vio_ggplot_func
 #'
-#' Create a base canvas violin ggplot plot object
+#' Create a base canvas violin ggplot  object
 #'
-#' @param dataset A tataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.
+#' @param dataset A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df. Note: this function in wrapped inside the final superplot function.
 #' @param yaxe A string. The variable name of interest to plot.
 #' @param xaxe A string. The variable you want to compare with. Default to `Animal`.
 #' @param faceted_by_1 A string. Grouping variables for visualization. Default to `Condition`.
