@@ -13,7 +13,7 @@ wave_layer_vio_ggplot_func(
 )
 }
 \arguments{
-\item{dataset}{A tataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.}
+\item{dataset}{A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.}
 
 \item{yaxe}{A string. The variable name of interest to plot.}
 
@@ -27,5 +27,5 @@ wave_layer_vio_ggplot_func(
 A ggplot object with a violin plot canvas to add additional layers.
 }
 \description{
-Create a base canvas violin ggplot plot object
+Create a base canvas violin ggplot  object. This function make single waves violin plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function is wrapped inside the final superplot function.
 }

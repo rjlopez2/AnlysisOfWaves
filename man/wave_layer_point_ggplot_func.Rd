@@ -30,8 +30,8 @@ wave_layer_point_ggplot_func(
 \item{wave_alpha}{A double. Value assigned to the transparency of the dots. Default to \code{0.4}.}
 }
 \value{
-A ggplot object with an dotplot additional layer.
+A ggplot object with a dotplot additional layer of individual waves datapoint.
 }
 \description{
-Create a dot plot ggplot object layer on a base canvas plot. This function make single waves dot plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function in wrapped inside the final superplot function.
+Create a dot plot ggplot object layer on a base canvas plot. This function make single waves dot plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function is wrapped inside the final superplot function.
 }
