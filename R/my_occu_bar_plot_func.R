@@ -39,7 +39,7 @@ my_occu_bar_plot_func <- function(my_dataset, reffer_wave_thres = 10, ...){
 
   # my_bar_plot
 
-  return(list(occu_bar_plot = my_bar_plot))
+  return(occu_bar_plot = my_bar_plot)
 
 
 }
