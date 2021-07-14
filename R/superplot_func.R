@@ -78,7 +78,9 @@ superplot_func <- function(dataset,
                                      yaxe = yaxe,
                                      animal_size = animal_size,
                                      animal_alpha = animal_alpha,
-                                     jitter_width = 0)
+                                     jitter_width = 0) +
+      ggplot2::theme(legend.position = "none") +
+      pptx_presentation_theme_func(base_font_size)
   }
 
   superplot <- superplot +
