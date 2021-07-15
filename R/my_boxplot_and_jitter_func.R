@@ -12,7 +12,7 @@
 #' @param jitter_width Double. Define how big is the with of the scatter points.
 #' @param .alpha Double. Define transparency for your scatter points.
 #' @param .dot_size Double. Define the size of the scatter points.
-#' @param ... Other parameters to pass to the function.
+#' @param base_font_size A integer. Modify the size of the fonts. Default to 22.
 #'
 #' @return A ggplot object with boxplot + jitter scatter plot.
 #' @export
@@ -28,7 +28,7 @@ my_boxplot_and_jitter_func <- function(dataset,
                                        jitter_width = 0.5,
                                        .alpha = 0.25,
                                        .dot_size = 2.5,
-                                       ...) {
+                                       base_font_size = 22) {
 
   scatt_color <- paste0("interaction(", paste0(scatt_color, collapse =  ", "), ")")
   box_color <- paste0("interaction(", paste0(box_color, collapse =  ", "), ")")
@@ -70,9 +70,9 @@ my_boxplot_and_jitter_func <- function(dataset,
 
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
     # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
-    pptx_presentation_theme_func(...) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
-    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000"))# + # set to red and black as defoult color for Animals
+    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
   # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
+    pptx_presentation_theme_func(base_font_size)
 
 }
