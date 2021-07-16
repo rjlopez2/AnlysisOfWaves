@@ -11,6 +11,7 @@
 #' @examples # the example is missing
 summarize_sr_by_cell_func <- function(dataset,
                                       my_grouping_vars = c("Date",
+                                                           "Animal_No",
                                                            "Animal",
                                                            "Experiment",
                                                            "Condition",

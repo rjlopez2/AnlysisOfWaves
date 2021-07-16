@@ -6,7 +6,8 @@
 \usage{
 summarize_sr_by_cell_func(
   dataset,
-  my_grouping_vars = c("Date", "Animal", "Experiment", "Condition", "Treatment")
+  my_grouping_vars = c("Date", "Animal_No", "Animal", "Experiment", "Condition",
+    "Treatment")
 )
 }
 \arguments{
