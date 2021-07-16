@@ -35,3 +35,6 @@ A ggplot object with a dotplot additional layer of individual waves datapoint.
 \description{
 Create a dot plot ggplot object layer on a base canvas plot. This function make single waves dot plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function is wrapped inside the final superplot function.
 }
+\examples{
+# the example is missing
+}

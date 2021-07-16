@@ -29,3 +29,6 @@ A ggplot object with a violin plot canvas to add additional layers.
 \description{
 Create a base canvas violin ggplot  object. This function make violin plot with aggregated waves (average) at the cellular level. Note: this function is wrapped inside the final superplot function.
 }
+\examples{
+# the example is missing
+}

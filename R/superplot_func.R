@@ -18,7 +18,7 @@
 #' @return A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
 #' @export
 #'
-#' @examples
+#' @examples # the example is missing
 superplot_func <- function(dataset,
                            yaxe,
                            base_violin = "cells",

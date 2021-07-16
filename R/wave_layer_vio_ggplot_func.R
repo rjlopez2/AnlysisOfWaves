@@ -11,7 +11,7 @@
 #' @return A ggplot object with a violin plot canvas to add additional layers.
 #' @export
 #'
-#' @examples
+#' @examples # the example is missing
 wave_layer_vio_ggplot_func <- function(dataset,
                                        yaxe,
                                        xaxe = "Animal",

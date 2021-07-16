@@ -14,7 +14,7 @@
 #' @return A ggplot object with a dotplot additional layer of individual Animal datapoints.
 #' @export
 #'
-#' @examples
+#' @examples # the example is missing
 animal_layer_point_ggplot_func <- function(ggplot_obj,
                                            dataset,
                                            xaxe = "Animal",

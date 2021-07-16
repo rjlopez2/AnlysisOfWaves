@@ -50,3 +50,6 @@ A ggplot object with a superplot indicating multiples layers of  Animals, cell o
 \description{
 Make a violin and scatter plot with aggregated data at different levels (animal, cell or waves). Note: this function is depending on other functions to build the multiples layers up.
 }
+\examples{
+# the example is missing
+}

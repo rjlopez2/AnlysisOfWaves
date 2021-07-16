@@ -32,3 +32,6 @@ A ggplot object with a dotplot additional layer of individual cell datapoint.
 \description{
 Create a dot plot ggplot object layer on a base canvas plot. This function make dots plot with aggregated waves (average) by cells, that is, every datapoint represent the average value of multiples waves of single cells. Note: this function is wrapped inside the final superplot function.
 }
+\examples{
+# the example is missing
+}

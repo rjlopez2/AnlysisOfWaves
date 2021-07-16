@@ -38,3 +38,6 @@ A ggplot object with a dotplot additional layer of individual Animal datapoints.
 \description{
 Create a dot plot ggplot object layer on a base canvas plot. This function makes a dot plot by calculating the average value for each animal based on the cellular level, so it shows the average wave for each animal. Note: this function is wrapped inside the final superplot function.
 }
+\examples{
+# the example is missing
+}

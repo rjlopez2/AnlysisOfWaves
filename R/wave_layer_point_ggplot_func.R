@@ -13,7 +13,7 @@
 #' @return A ggplot object with a dotplot additional layer of individual waves datapoint.
 #' @export
 #'
-#' @examples
+#' @examples # the example is missing
 wave_layer_point_ggplot_func <- function(base_ggplot_obj,
                                          dataset,
                                          xaxe = "Animal",

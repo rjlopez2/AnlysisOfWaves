@@ -12,7 +12,7 @@
 #' @return  A ggplot object with a dotplot additional layer of individual cell datapoint.
 #' @export
 #'
-#' @examples
+#' @examples # the example is missing
 cell_layer_point_ggplot_func <- function(ggplot_obj,
                                          dataset,
                                          yaxe,

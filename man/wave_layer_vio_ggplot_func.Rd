@@ -29,3 +29,6 @@ A ggplot object with a violin plot canvas to add additional layers.
 \description{
 Create a base canvas violin ggplot  object. This function make single waves violin plot with the raw data that is, no aggregation on single waves for multiples cells. Note: this function is wrapped inside the final superplot function.
 }
+\examples{
+# the example is missing
+}
