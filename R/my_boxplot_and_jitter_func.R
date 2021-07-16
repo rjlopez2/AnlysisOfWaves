@@ -57,8 +57,8 @@ my_boxplot_and_jitter_func <- function(dataset,
     ggpubr::stat_compare_means(paired = F, # this compute p.values
                        show.legend = F,
                        # label = "p.signif", # this shows the "*" symbols significance code
-                       label.x.npc = "centre",
-                       size = 5) +
+                       label.x.npc = "centre") +
+                       # size = 5) +
     # symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1),
     #                    symbols = c("****", "***", "**", "*", "ns"))) +
     # stat_summary(fun = mean, # this shows the mean (string) on the graph
