@@ -13,7 +13,7 @@ normalize_sr_data_func(aggre_by_cell_dataset)
 A dataframe with nomrlaize numeric variables to control.
 }
 \description{
-This function take a previously aggregated dataset using the function \code{summarize_sr_by_cell_func()} end normalize all numeric variables to the control conditions. hte new dataset contain a variable call \code{Var_type} witch contain the \code{Normalized} value or the \code{Raw} value.
+This function take a previously aggregated by cell dataset using the function \code{summarize_sr_by_cell_func()} end normalize all numeric variables to the control conditions. The new dataset contain a new variable called \code{Var_type} witch contain the \code{"Normalized"} value or the \code{"Raw"} value.
 }
 \examples{
 # the example is missing
