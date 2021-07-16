@@ -72,14 +72,14 @@ filter_SR_experiment_func <- function(my_dataset,
       as.character()
   }
 
-  #print(my_Wave_no)
+  my_dataset <- my_dataset %>%
+    mutate(across(.data$For_Analysis,
+                  ~ case_when(.data$Wave_No %in% c(my_Wave_no) &
+                                .data$Linescan %in% c(my_Linescan) &
+                                .data$Experiment %in% c(my_Experiment) &
+                                .data$Date %in% c(my_date) ~ set_True,
+                              T ~ .data$For_Analysis)))
 
-  my_dataset <- transform(my_dataset,
-                          For_Analysis = case_when(.data$Wave_No %in% c(my_Wave_no) &
-                                                     .data$Linescan %in% c(my_Linescan) &
-                                                     .data$Experiment %in% c(my_Experiment) &
-                                                     .data$Date %in% c(my_date) ~ set_True,
-                                                   T ~ For_Analysis))
 
 
   return(my_dataset)
