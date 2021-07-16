@@ -20,7 +20,8 @@ pptx_presentation_theme_func <- function(base_size = 18){
     # panel.background = ggplot2::element_blank(),
     panel.grid.major = ggplot2::element_blank(),
     panel.grid.minor = ggplot2::element_blank(),
-    strip.background = ggplot2::element_blank(),
+    # strip.background = ggplot2::element_blank(),
+    strip.background = ggplot2::element_rect(fill = "transparent", color = NA),
     strip.text = ggplot2::element_text(size = base_size * 0.8 ,
                               face = "bold",
                               vjust = 1),
@@ -31,10 +32,10 @@ pptx_presentation_theme_func <- function(base_size = 18){
                               lineend = "round",
                               colour = "black"),
     panel.border = ggplot2::element_rect(fill = "transparent", color = NA),
-    panel.background = ggplot2::element_rect(fill = "transparent"), # bg of the panel
+    panel.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the panel
     plot.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the plot
-    legend.background = ggplot2::element_rect(fill = "transparent"), # get rid of legend bg
-    legend.box.background = ggplot2::element_rect(fill = "transparent") # get rid of legend panel bg
+    legend.background = ggplot2::element_rect(fill = "transparent", color = NA), # get rid of legend bg
+    legend.box.background = ggplot2::element_rect(fill = "transparent", color = NA) # get rid of legend panel bg
     # axis.title.x=ggplot2::element_blank()
 
 
