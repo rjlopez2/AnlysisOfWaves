@@ -16,7 +16,7 @@
 cell_layer_vio_ggplot_func <- function(dataset,
                                        yaxe,
                                        xaxe = "Animal",
-                                       my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment"),
+                                       my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment", "Experiment"),
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = "."){
 
