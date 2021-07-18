@@ -19,7 +19,7 @@
 animal_layer_point_ggplot_func <- function(ggplot_obj,
                                            dataset,
                                            xaxe = "Animal",
-                                           my_grouping_vars = c("Animal_No", "Animal", "Condition", "Experiment", "Treatment"),
+                                           my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment", "Experiment"),
                                            colored_by = "animal_type",
                                            yaxe,
                                            jitter_width = 3.5,
@@ -48,7 +48,7 @@ animal_layer_point_ggplot_func <- function(ggplot_obj,
     # group_by(.data$Animal_No,
     #          .data$Animal,
     #          .data$Condition) %>%
-    group_by(across(any_of(my_grouping_vars))) %>%
+    group_by(across(any_of(my_grouping_vars[!my_grouping_vars %in% "Experiment"]))) %>%
     summarise(across(where(is.double), # aggregate (averaging) by Animal
                      ~ mean(.x, na.rm = TRUE)), .groups = "drop_last")
 

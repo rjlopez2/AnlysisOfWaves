@@ -8,7 +8,7 @@ animal_layer_point_ggplot_func(
   ggplot_obj,
   dataset,
   xaxe = "Animal",
-  my_grouping_vars = c("Animal_No", "Animal", "Condition", "Experiment", "Treatment"),
+  my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment", "Experiment"),
   colored_by = "animal_type",
   yaxe,
   jitter_width = 3.5,
