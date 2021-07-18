@@ -14,6 +14,7 @@
 #' @param animal_size A double. Value assigned to the size of the dots. Default to `5`.
 #' @param animal_alpha A double. Value assigned to the transparency of the dots. Default to `0.6`.
 #' @param base_font_size A integer. Modify the size of the fonts. Default to 15.
+#' @param ... Pass additional parameters to the internla plot layers.
 #'
 #' @return A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
 #' @export
@@ -30,7 +31,8 @@ superplot_func <- function(dataset,
                            cell_alpha = 0.4,
                            animal_size = 5,
                            animal_alpha = 0.6,
-                           base_font_size = 15){
+                           base_font_size = 15,
+                           ...){
 
   ####################################################################################
   ### this function the different plotting layers for the final superplot
@@ -41,10 +43,10 @@ superplot_func <- function(dataset,
   switch (base_violin,
 
           waves = superplot <- dataset %>%
-            wave_layer_vio_ggplot_func(yaxe = yaxe),
+            wave_layer_vio_ggplot_func(yaxe = yaxe, ...),
 
           cells = superplot <- dataset %>%
-            cell_layer_vio_ggplot_func(yaxe = yaxe),
+            cell_layer_vio_ggplot_func(yaxe = yaxe, ...),
 
           stop("Invalid `base_violin` value. You must select a violin basic plot. Options are: 1. `waves`, 2. `cells`")
 

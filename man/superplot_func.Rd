@@ -16,7 +16,8 @@ superplot_func(
   cell_alpha = 0.4,
   animal_size = 5,
   animal_alpha = 0.6,
-  base_font_size = 15
+  base_font_size = 15,
+  ...
 )
 }
 \arguments{
@@ -43,6 +44,8 @@ superplot_func(
 \item{animal_alpha}{A double. Value assigned to the transparency of the dots. Default to \code{0.6}.}
 
 \item{base_font_size}{A integer. Modify the size of the fonts. Default to 15.}
+
+\item{...}{Pass additional parameters to the internla plot layers.}
 }
 \value{
 A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
