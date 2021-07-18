@@ -8,6 +8,7 @@ cell_layer_vio_ggplot_func(
   dataset,
   yaxe,
   xaxe = "Animal",
+  my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment"),
   faceted_by_1 = "Condition",
   faceted_by_2 = "."
 )
@@ -18,6 +19,8 @@ cell_layer_vio_ggplot_func(
 \item{yaxe}{A string. The variable name of interest to plot.}
 
 \item{xaxe}{A string. The variable you want to compare with. Default to \code{Animal}.}
+
+\item{my_grouping_vars}{Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!}
 
 \item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition}.}
 

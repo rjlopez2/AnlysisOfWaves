@@ -8,6 +8,7 @@
 #' @param jitter_width A double. Value assigned to the jitter width. Default to `3.5`.
 #' @param cell_size A double. Value assigned to the size of the dots. Default to `2`.
 #' @param cell_alpha A double. Value assigned to the transparency of the dots. Default to `0.4`.
+#' @param my_grouping_vars Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!
 #'
 #' @return  A ggplot object with a dotplot additional layer of individual cell datapoint.
 #' @export
@@ -16,6 +17,7 @@
 cell_layer_point_ggplot_func <- function(ggplot_obj,
                                          dataset,
                                          yaxe,
+                                         my_grouping_vars = c("Animal_No", "Animal", "Condition", "Experiment", "Treatment"),
                                          jitter_width = 3.5,
                                          cell_size = 2,
                                          cell_alpha = 0.4){
@@ -30,10 +32,11 @@ cell_layer_point_ggplot_func <- function(ggplot_obj,
     dplyr::nth(2)
 
   cell_level_data <- dataset %>%
-    group_by(.data$Animal_No,
-             .data$Animal,
-             .data$Condition,
-             .data$Experiment) %>%
+    # group_by(.data$Animal_No,
+    #          .data$Animal,
+    #          .data$Condition,
+    #          .data$Experiment) %>%
+    group_by(across(any_of(my_grouping_vars))) %>%
     summarise(across(where(is.double), # aggregate (averaging) by cells
                      ~ mean(.x, na.rm = TRUE)), .groups = "drop_last")
 

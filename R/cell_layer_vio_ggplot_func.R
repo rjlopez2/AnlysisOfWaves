@@ -7,6 +7,7 @@
 #' @param xaxe A string. The variable you want to compare with. Default to `Animal`.
 #' @param faceted_by_1 A string. Grouping variables for visualization. Default to `Condition`.
 #' @param faceted_by_2 A string. Aditional grouping variables for visualization. Default to `.`.
+#' @param my_grouping_vars Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!
 #'
 #' @return A ggplot object with a violin plot canvas to add additional layers.
 #' @export
@@ -15,15 +16,17 @@
 cell_layer_vio_ggplot_func <- function(dataset,
                                        yaxe,
                                        xaxe = "Animal",
+                                       my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment"),
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = "."){
 
 
   cell_level_data <- dataset %>%
-    group_by(.data$Animal_No,
-             .data$Animal,
-             .data$Condition,
-             .data$Experiment) %>%
+    # group_by(.data$Animal_No,
+    #          .data$Animal,
+    #          .data$Condition,
+    #          .data$Experiment) %>%
+    group_by(across(any_of(my_grouping_vars))) %>%
     summarise(across(where(is.double), # aggregate (averaging) by cells
                      ~ mean(.x, na.rm = TRUE)), .groups = "drop_last")
 

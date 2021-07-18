@@ -8,6 +8,7 @@ cell_layer_point_ggplot_func(
   ggplot_obj,
   dataset,
   yaxe,
+  my_grouping_vars = c("Animal_No", "Animal", "Condition", "Experiment", "Treatment"),
   jitter_width = 3.5,
   cell_size = 2,
   cell_alpha = 0.4
@@ -19,6 +20,8 @@ cell_layer_point_ggplot_func(
 \item{dataset}{A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.}
 
 \item{yaxe}{A string. The variable name of interest to plot.}
+
+\item{my_grouping_vars}{Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!}
 
 \item{jitter_width}{A double. Value assigned to the jitter width. Default to \code{3.5}.}
 

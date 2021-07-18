@@ -8,6 +8,7 @@ animal_layer_point_ggplot_func(
   ggplot_obj,
   dataset,
   xaxe = "Animal",
+  my_grouping_vars = c("Animal_No", "Animal", "Condition", "Experiment", "Treatment"),
   colored_by = "animal_type",
   yaxe,
   jitter_width = 3.5,
@@ -21,6 +22,8 @@ animal_layer_point_ggplot_func(
 \item{dataset}{A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.}
 
 \item{xaxe}{A string. The variable you want to compare with. Default to \code{Animal}.}
+
+\item{my_grouping_vars}{Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!}
 
 \item{colored_by}{A string. The criteria to assigning color to the dots. Options possibles are by \code{animal_no} and by \code{animal_type}. Default to \code{animal_type}.}
 
