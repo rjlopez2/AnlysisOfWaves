@@ -8,7 +8,7 @@ superplot_func(
   dataset,
   yaxe,
   base_violin = "cells",
-  plot_type = "cells",
+  dot_layer = "cells",
   animal_layer = TRUE,
   wave_size = 2,
   wave_alpha = 0.4,
@@ -27,7 +27,7 @@ superplot_func(
 
 \item{base_violin}{A string. Which base plot would you like to plot as a violin plot?. Options are: 1. \code{waves}, 2. \code{cells}. Default to \code{cells}.}
 
-\item{plot_type}{A string. Which type of data would you like to see in the next layer?. Options are: 1. \code{waves}, 2. \code{cells}, 3. \code{none}. Default to \code{cells}.}
+\item{dot_layer}{A string. Which data would you like to see in the next layer?. Options are: 1. \code{waves}, 2. \code{cells}, 3. \code{waves_and_cells}, 4. \code{none}. Default to \code{cells}.}
 
 \item{animal_layer}{A logic value. Would you like to add the Animal dot layer? default to \code{TRUE}.}
 

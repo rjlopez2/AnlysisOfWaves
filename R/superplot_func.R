@@ -5,7 +5,7 @@
 #' @param dataset A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.
 #' @param yaxe A string. The variable name of interest to plot.
 #' @param base_violin A string. Which base plot would you like to plot as a violin plot?. Options are: 1. `waves`, 2. `cells`. Default to `cells`.
-#' @param plot_type A string. Which type of data would you like to see in the next layer?. Options are: 1. `waves`, 2. `cells`, 3. `none`. Default to `cells`.
+#' @param dot_layer A string. Which data would you like to see in the next layer?. Options are: 1. `waves`, 2. `cells`, 3. `waves_and_cells`, 4. `none`. Default to `cells`.
 #' @param animal_layer A logic value. Would you like to add the Animal dot layer? default to `TRUE`.
 #' @param wave_size A double. Value assigned to the size of the dots. Default to `2`.
 #' @param wave_alpha A double. Value assigned to the transparency of the dots. Default to `0.4`.
@@ -23,7 +23,7 @@
 superplot_func <- function(dataset,
                            yaxe,
                            base_violin = "cells",
-                           plot_type = "cells",
+                           dot_layer = "cells",
                            animal_layer = TRUE,
                            wave_size = 2,
                            wave_alpha = 0.4,
@@ -53,22 +53,37 @@ superplot_func <- function(dataset,
   )
 
   # create cell or wave dot plot layer, default to cells
-  switch (plot_type,
+  switch (dot_layer,
           cells = superplot <- superplot %>%
             cell_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
                                          jitter_width = 3,
                                          cell_alpha = cell_alpha,
                                          cell_size = cell_size),
+
           waves = superplot <- superplot %>%
             wave_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
                                          jitter_width = 3,
                                          wave_size = wave_size,
                                          wave_alpha = wave_alpha),
+
+          waves_and_cells = superplot <- superplot %>%
+            wave_layer_point_ggplot_func(dataset = dataset,
+                                         yaxe = yaxe,
+                                         jitter_width = 3,
+                                         wave_size = wave_size,
+                                         wave_alpha = wave_alpha) %>%
+            cell_layer_point_ggplot_func(dataset = dataset,
+                                         yaxe = yaxe,
+                                         jitter_width = 3,
+                                         cell_alpha = cell_alpha,
+                                         cell_size = cell_size),
+
+
           none = superplot,
 
-          stop("Invalid `plot_type` value. You must select a dot (small) plot type. Options are: 1. `waves`, 2. `cells`, 3. `none`")
+          stop("Invalid `dot_layer` value. You must select a dot (small) plot type. Options are: 1. `'waves'`, 2. `'cells'`, 3. `'waves_and_cells'` or 4. `'none'`")
 
   )
 
