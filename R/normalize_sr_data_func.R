@@ -16,7 +16,7 @@ normalize_sr_data_func <- function(aggre_by_cell_dataset){
                 values_from = where(is.double)) %>%
     mutate(across(where(is.double) ,
                   list("Normalized" = ~. / Control))) %>%
-    group_by(.data$Treatment, .data$Animal) %>%
+    group_by(.data$Treatment, .data$Animal, .data$Parameters) %>%
     mutate(Control_Normalized =  .data$Control / mean(.data$Control, na.rm = T)) %>%
     pivot_longer(cols = where(is.double),
                  names_to = "Condition") %>%
