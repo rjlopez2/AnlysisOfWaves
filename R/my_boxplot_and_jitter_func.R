@@ -13,7 +13,9 @@
 #' @param .alpha Double. Define transparency for your scatter points.
 #' @param .dot_size Double. Define the size of the scatter points.
 #' @param base_font_size A integer. Modify the size of the fonts. Default to 22.
+#' @param y_limits A double. Optional paramter to set the upper y limit to your plot.
 #'
+#' @importFrom methods missingArg
 #' @return A ggplot object with boxplot + jitter scatter plot.
 #' @export
 #'
@@ -28,37 +30,38 @@ my_boxplot_and_jitter_func <- function(dataset,
                                        jitter_width = 0.5,
                                        .alpha = 0.25,
                                        .dot_size = 2.5,
-                                       base_font_size = 22) {
+                                       base_font_size = 22,
+                                       y_limits) {
 
   scatt_color <- paste0("interaction(", paste0(scatt_color, collapse =  ", "), ")")
   box_color <- paste0("interaction(", paste0(box_color, collapse =  ", "), ")")
 
-  ggplot2::ggplot(data = dataset,
-                  ggplot2::aes_string(x = xaxe,
-                    y = yaxe)) +
+  my_plot_element <- ggplot2::ggplot(data = dataset,
+                                     ggplot2::aes_string(x = xaxe,
+                                                         y = yaxe)) +
     ggplot2::geom_boxplot(ggplot2::aes_string(color = box_color),
-                 outlier.shape = NA,
-                 lwd = 1,
-                 show.legend = F) +
+                          outlier.shape = NA,
+                          lwd = 1,
+                          show.legend = F) +
     # aes(x = {{xaxe}},
     #     y = {{yaxe}})) +
     # geom_boxplot(aes(color = {{box_color}}),
     #              outlier.shape = NA, # Remove outlier
     #              show.legend = F) +
     ggplot2::geom_point(shape = 21,
-               size = .dot_size,
-               ggplot2::aes_string(fill = box_color,
-                          group = scatt_color),
-               color = "black",
-               alpha = .alpha,
-               position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
-                                               seed = 999),
-               show.legend = F) +
+                        size = .dot_size,
+                        ggplot2::aes_string(fill = box_color,
+                                            group = scatt_color),
+                        color = "black",
+                        alpha = .alpha,
+                        position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
+                                                                 seed = 999),
+                        show.legend = F) +
     ggpubr::stat_compare_means(paired = F, # this compute p.values
-                       show.legend = F,
-                       # label = "p.signif", # this shows the "*" symbols significance code
-                       label.x.npc = "centre") +
-                       # size = 5) +
+                               show.legend = F,
+                               # label = "p.signif", # this shows the "*" symbols significance code
+                               label.x.npc = "centre") +
+    # size = 5) +
     # symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1),
     #                    symbols = c("****", "***", "**", "*", "ns"))) +
     # stat_summary(fun = mean, # this shows the mean (string) on the graph
@@ -72,7 +75,15 @@ my_boxplot_and_jitter_func <- function(dataset,
     # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
     ggplot2::scale_fill_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
-  # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
+    # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
     pptx_presentation_theme_func(base_font_size)
+
+  if(!missingArg(y_limits)){
+
+    my_plot_element <- my_plot_element +
+      ggplot2::coord_cartesian(ylim = c(0, y_limits))
+  }
+
+  return(my_plot_element)
 
 }

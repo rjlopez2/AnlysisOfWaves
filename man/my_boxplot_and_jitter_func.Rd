@@ -15,7 +15,8 @@ my_boxplot_and_jitter_func(
   jitter_width = 0.5,
   .alpha = 0.25,
   .dot_size = 2.5,
-  base_font_size = 22
+  base_font_size = 22,
+  y_limits
 )
 }
 \arguments{
@@ -40,6 +41,8 @@ my_boxplot_and_jitter_func(
 \item{.dot_size}{Double. Define the size of the scatter points.}
 
 \item{base_font_size}{A integer. Modify the size of the fonts. Default to 22.}
+
+\item{y_limits}{A double. Optional paramter to set the upper y limit to your plot.}
 }
 \value{
 A ggplot object with boxplot + jitter scatter plot.
