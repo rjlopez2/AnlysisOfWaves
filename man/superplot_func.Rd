@@ -51,7 +51,7 @@ superplot_func(
 A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
 }
 \description{
-Make a violin and scatter plot with aggregated data at different levels (animal, cell or waves). Note: this function is depending on other functions to build the multiples layers up.
+Make a violin and scatter plot with aggregated data at different levels (animal, cell or waves). The layers are constructed in this order: (wave/cell) violin layer -> (wave/cell) small dot layer -> (Animal) large dot layer. Note: this function is depending on other functions to build the multiples layers up.
 }
 \examples{
 # the example is missing
