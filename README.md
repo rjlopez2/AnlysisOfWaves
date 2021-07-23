@@ -4,7 +4,6 @@
 # AnlysisOfWaves
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of AnlysisOfWaves is to easily reproduce the analysis of Ca2+
@@ -28,10 +27,11 @@ occurrence of Ca2+ waves obtained from linescan images:
 ``` r
 library(AnlysisOfWaves)
 
-time_threshold <- 10 # Set time for highlighting the relative wave occurrence.
+wave_or_EAP_threshold <- 10 # Set time for highlighting the relative wave occurrence.
 
-df40_o %>% 
-  my_cum_occu_wave_plot_func(time_threshold)
+df_waves_intact_cells %>%
+  my_cum_occu_wave_plot_func(reffer_wave_thres = wave_or_EAP_threshold,
+                             base_size = 22)
 #> $cum_occu_plot
 ```
 

@@ -36,9 +36,10 @@ This is a basic example which shows you how plot the cumulative occurrence of Ca
 ```{r example, out.width = "600px"}
 library(AnlysisOfWaves)
 
-time_threshold <- 10 # Set time for highlighting the relative wave occurrence.
+wave_or_EAP_threshold <- 10 # Set time for highlighting the relative wave occurrence.
 
-df40_o %>% 
-  my_cum_occu_wave_plot_func(time_threshold)
+df_waves_intact_cells %>%
+  my_cum_occu_wave_plot_func(reffer_wave_thres = wave_or_EAP_threshold,
+                             base_size = 22)
 
 ```
