@@ -10,7 +10,8 @@ cell_layer_vio_ggplot_func(
   xaxe = "Animal",
   my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment", "Experiment"),
   faceted_by_1 = "Condition",
-  faceted_by_2 = "."
+  faceted_by_2 = ".",
+  y_limits
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ cell_layer_vio_ggplot_func(
 \item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition}.}
 
 \item{faceted_by_2}{A string. Aditional grouping variables for visualization. Default to \code{.}.}
+
+\item{y_limits}{A double. Optional paramter to set the upper y limit to your plot.}
 }
 \value{
 A ggplot object with a violin plot canvas to add additional layers.

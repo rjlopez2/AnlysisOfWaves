@@ -30,7 +30,9 @@ Imports:
     utils,
     colorspace,
     ggbeeswarm,
-    ggnewscale
+    ggnewscale,
+    attempt,
+    methods
 Suggests: 
     testthat
 Depends: 
