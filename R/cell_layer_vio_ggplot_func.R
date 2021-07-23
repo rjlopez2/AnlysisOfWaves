@@ -8,7 +8,9 @@
 #' @param faceted_by_1 A string. Grouping variables for visualization. Default to `Condition`.
 #' @param faceted_by_2 A string. Aditional grouping variables for visualization. Default to `.`.
 #' @param my_grouping_vars Character vector. A character vector of groups names assigned to perform the cell aggregation. Don't change at least you know what you are doing!
+#' @param y_limits A double. Optional paramter to set the upper y limit to your plot.
 #'
+#' @importFrom methods missingArg
 #' @return A ggplot object with a violin plot canvas to add additional layers.
 #' @export
 #'
@@ -18,7 +20,8 @@ cell_layer_vio_ggplot_func <- function(dataset,
                                        xaxe = "Animal",
                                        my_grouping_vars = c("Animal_No", "Animal", "Condition", "Treatment", "Experiment"),
                                        faceted_by_1 = "Condition",
-                                       faceted_by_2 = "."){
+                                       faceted_by_2 = ".",
+                                       y_limits){
 
 
   cell_level_data <- dataset %>%
@@ -44,6 +47,12 @@ cell_layer_vio_ggplot_func <- function(dataset,
                          size = 1) +
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000"))
+
+  if(!missingArg(y_limits)){
+
+    base_plot <- base_plot +
+      ggplot2::coord_cartesian(ylim = c(0, y_limits))
+  }
 
 
   return(base_plot)
