@@ -18,9 +18,9 @@ summarize_sr_by_cell_func <- function(dataset,
                                                            "Treatment")){
 
   dataset <- dataset %>%
-    group_by(across(all_of(c(my_grouping_vars)))) %>%
+    group_by(across(any_of(c(my_grouping_vars)))) %>%
     summarise(across(where(is.double),
                      ~ mean(.x, na.rm = TRUE)),
-              .groups = "drop_last")
+              .groups = "drop")
   return(dataset)
 }
