@@ -1,16 +1,16 @@
+utils::globalVariables("where")
 #' Summary statistics of multiples variables
 #'
-#' Compute the summary statistics of the multiples variables from the wave analysis of a previously cleaned dataset. Compute the `mean`, `sd`, `sem`, `median`, `n_Waves`, `n_Cells`, `n_Animals` and `Normality_Shapiro_p.` NOTE: Shapiro-Wilk test will fail if less than 2 samples!.
+#'Compute the summary statistics of the multiples variables from the wave analysis of a previously cleaned dataset. Compute the `mean`, `sd`, `sem`, `median`, `n_Waves`, `n_Cells`, `n_Animals` and `Normality_Shapiro_p.` NOTE: Shapiro-Wilk test will fail if less than 2 samples!.
 #'
 #' @param my_dataset A previously cleaned dataframe with the function `clean_and_tidy_df_func()`.
 #' @param my_grouping_vars Character vector. A character vector of groups names assigned to perform the aggregation. Don't change at least you know what you are doing!
-#' @param Na_rm = Boolean. Shall Nas be removed for summary functions computation?. Default to TRUE.
-#' @return return the mean, median, SD, SEM, number of elements analized (cells or wave), number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
-#' @export
-#' @examples # The example is still missing...
+#' @param Na_rm Boolean. Shall Nas be removed for summary functions computation?. Default to TRUE.
 #'
-utils::globalVariables("where")
-
+#' @return Return a dataframe with the mean, median, SD, SEM, number of elements analized (cells or wave), number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
+#' @export
+#'
+#' @examples # the example is missing
 my_summ_stat_func <- function(my_dataset,
                               my_grouping_vars = c("Animal", "Treatment", "Condition"),
                               Na_rm = TRUE){
