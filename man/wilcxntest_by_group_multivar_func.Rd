@@ -31,5 +31,4 @@ Wilcoxon test for multiples comparison
 }
 \examples{
 # no example made jet.
-
 }

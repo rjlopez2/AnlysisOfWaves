@@ -12,30 +12,6 @@
 #' @export
 #'
 #' @examples # no example made jet.
-#'
-# wilcxntest_by_group_multivar_func <- function(my_dataset, my_var_set,
-#                                               group_1 = c("Treatment", "Condition"),
-#                                               group_2 = "Animal"){
-#
-#   result_table <- purrr::map_dfr(my_var_set, function(my_var){
-#
-#     group_1 <- syms(group_1)# add multiples strings with sym(s)
-#     group_2 <- sym(group_2)
-#     my_var <- sym(my_var)
-#
-#     my_dataset %>%
-#       group_by(across(any_of(!!!group_1))) %>%
-#       rstatix::pairwise_wilcox_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
-#                                     p.adjust.method = "BH",
-#                                     detailed = TRUE,
-#                                     paired = FALSE) %>%  # this was f**ing tricky to make it work -> check tidy evaluation and fucntions: "expr", "formula", "eval".
-#       select(any_of(.data$Treatment), .data$Condition, everything()) %>%
-#       arrange(any_of(.data$Treatment), .data$Condition)
-#   })
-#
-#   result_table
-#
-# }
 
 wilcxntest_by_group_multivar_func <- function(my_dataset,
                                               my_var_set,
@@ -61,7 +37,8 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
 
   result_table <- result_table %>%
     dplyr::rename(Parameter = .data$.y.) %>%
-    mutate(p.adjust.method = p_adj_met)
+    mutate(p.adjust.method = p_adj_met) %>%
+    mutate(across(where(is.double), ~ round(.x, 2)))
 
   return(result_table)
 
