@@ -37,7 +37,7 @@ my_summ_stat_func <- function(my_dataset,
            Parameters = str_extract(.data$Parameters,
                                     pattern = "([^_]*_[^_]*)")) %>%
     pivot_wider(names_from = .data$stats) %>%
-    mutate(across(where(is.double), ~ round(.x, 2)))
+    mutate(across(where(is.double), ~ round(.x, 1)))
 
   # calculate separately animal no
   animal_no <- my_dataset %>%

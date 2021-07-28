@@ -38,7 +38,7 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
   result_table <- result_table %>%
     dplyr::rename(Parameter = .data$.y.) %>%
     mutate(p.adjust.method = p_adj_met) %>%
-    mutate(across(where(is.double), ~ round(.x, 2)))
+    mutate(across(where(is.double), ~ round(.x, 1)))
 
   return(result_table)
 
