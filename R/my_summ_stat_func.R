@@ -45,10 +45,25 @@ my_summ_stat_func <- function(my_dataset,
     distinct(across(any_of(c("Animal", "Condition", "Animal_No")))) %>%
     summarise(n_Animals = n(), .groups = "drop")
 
-  full_table <- full_join(rearranged_table, animal_no, by = c("Animal", "Condition")) %>%
-    relocate(.data$n_Animals, .before = .data$n)
+  if( "Treatment" %in% colnames(rearranged_table)){
+    final_table <- left_join(rearranged_table,
+                                  animal_no,
+                                  by = my_grouping_vars) %>%
+      relocate(.data$n_Animals,
+               .before = .data$n)
+  }
+
+  if( !"Treatment" %in% colnames(rearranged_table)){
+    final_table <- left_join(rearranged_table,
+                                  animal_no,
+                                  by = my_grouping_vars[-2]) %>%
+      relocate(.data$n_Animals,
+               .before = .data$n)
+  }
+
+
 
   rm(summarized_DF, animal_no, rearranged_table)
 
-  return(full_table)
+  return(final_table)
 }
