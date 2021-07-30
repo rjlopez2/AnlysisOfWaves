@@ -29,10 +29,8 @@ make_multi_profile_func <- function(my_root_img_dir){
   })
 
   all_traces$Animal <- forcats::as_factor(all_traces$Animal) %>%  forcats::fct_relevel("WT")
-
-
   # my_traces$Condition[my_traces$Condition == "Iso"] <- "ISO"
-  all_traces$Condition <- forcats::as_factor(all_traces$Condition) %>% forcats::fct_relevel("Control")
+  all_traces$Condition <- forcats::as_factor(all_traces$Condition) %>% forcats::fct_relevel("Control", "Fab")
 
   all_traces
 
