@@ -7,7 +7,8 @@
 my_summ_stat_func(
   my_dataset,
   my_grouping_vars = c("Animal", "Treatment", "Condition"),
-  Na_rm = TRUE
+  Na_rm = TRUE,
+  round_to = 1
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ my_summ_stat_func(
 \item{my_grouping_vars}{Character vector. A character vector of groups names assigned to perform the aggregation. Don't change at least you know what you are doing!}
 
 \item{Na_rm}{Boolean. Shall Nas be removed for summary functions computation?. Default to TRUE.}
+
+\item{round_to}{Integer. A value to indicate number of decimals to used in final output. Default to 1.}
 }
 \value{
 Return a dataframe with the mean, median, SD, SEM, number of elements analized (cells or wave), number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
