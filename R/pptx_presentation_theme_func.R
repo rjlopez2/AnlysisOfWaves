@@ -13,13 +13,13 @@ pptx_presentation_theme_func <- function(base_size = 26){
   structure(list(
     axis.title = ggplot2::element_text(size = base_size * 1.2),
                               # vjust = 2),
-    axis.title.x = ggplot2::element_text(margin = margin(t = 12)),
-    axis.title.y = ggplot2::element_text(margin = margin(r = 10)),
+    axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)), # set distance of title in axis x
+    axis.title.y = ggplot2::element_text(margin = ggplot2::margin(r = 10)), # set distance of title in axis y
     axis.text = ggplot2::element_text(size = base_size ,
                              # vjust = 1,
                              colour = "black"),
-    axis.text.x = ggplot2::element_text(vjust = -1),
-    axis.text.y = ggplot2::element_text(margin = margin(r = 5)),
+    axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 8)), # set distance of text in axis x
+    axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 8)), # set distance of text in axis y
     # panel.border = ggplot2::element_blank(),
     # panel.background = ggplot2::element_blank(),
     panel.grid.major = ggplot2::element_blank(),
@@ -30,9 +30,9 @@ pptx_presentation_theme_func <- function(base_size = 26){
                                        face = "bold",
                                        vjust = 1),
     axis.line = ggplot2::element_line(colour = "black",
-                             size = base_size / 10,
+                             size = base_size / 13,
                              lineend = "round"),
-    axis.ticks = ggplot2::element_line(size = base_size / 10,
+    axis.ticks = ggplot2::element_line(size = base_size / 13,
                               lineend = "round",
                               colour = "black"),
     panel.border = ggplot2::element_rect(fill = "transparent", color = NA),
