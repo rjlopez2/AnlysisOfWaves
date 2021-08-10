@@ -3,7 +3,7 @@
 #' plot cum occurence of waves
 #'
 #' @param my_dataset A dataframe with raw data of waves.
-#' @param line_size Integer. the size of the lines to display. Defoult to 1.
+#' @param line_size Integer. the size of the lines to display. Default to 1.
 #' @param reffer_wave_thres A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.
 #' @param ... Additional paramters to pass to the eastethic setting function `pptx_presentation_theme_func()`.
 #'

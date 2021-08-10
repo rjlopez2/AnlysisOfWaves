@@ -8,6 +8,7 @@
 #' @param faceted_by_1 A string. Grouping variables for visualization. Default to `Condition`.
 #' @param faceted_by_2 A string. Aditional grouping variables for visualization. Default to `.`.
 #' @param y_limits A double. Optional paramter to set the upper y limit to your plot.
+#' @param line_size Integer. the size of the lines to display. Default to 1.
 #'
 #' @importFrom methods missingArg
 #' @return A ggplot object with a violin plot canvas to add additional layers.
@@ -19,7 +20,8 @@ wave_layer_vio_ggplot_func <- function(dataset,
                                        xaxe = "Animal",
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = ".",
-                                       y_limits){
+                                       y_limits,
+                                       line_size = 1){
 
   ####################################################################################
   ### this function make single waves violin plot with the raw data
@@ -35,7 +37,7 @@ wave_layer_vio_ggplot_func <- function(dataset,
                     ggplot2::aes(x = {{xaxe}},
                                  y = {{yaxe}})) +
     ggplot2::geom_violin(ggplot2::aes(color = {{xaxe}}),
-                         size = 1,
+                         size = line_size,
                          fill = NA) +
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000"))

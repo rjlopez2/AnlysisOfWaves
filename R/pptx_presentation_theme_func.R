@@ -12,10 +12,14 @@
 pptx_presentation_theme_func <- function(base_size = 26){
   structure(list(
     axis.title = ggplot2::element_text(size = base_size * 1.2),
-                              # vjust = 1),
+                              # vjust = 2),
+    axis.title.x = ggplot2::element_text(margin = margin(t = 12)),
+    axis.title.y = ggplot2::element_text(margin = margin(r = 10)),
     axis.text = ggplot2::element_text(size = base_size ,
                              # vjust = 1,
                              colour = "black"),
+    axis.text.x = ggplot2::element_text(vjust = -1),
+    axis.text.y = ggplot2::element_text(margin = margin(r = 5)),
     # panel.border = ggplot2::element_blank(),
     # panel.background = ggplot2::element_blank(),
     panel.grid.major = ggplot2::element_blank(),
@@ -26,16 +30,17 @@ pptx_presentation_theme_func <- function(base_size = 26){
                                        face = "bold",
                                        vjust = 1),
     axis.line = ggplot2::element_line(colour = "black",
-                             size = base_size / 15,
+                             size = base_size / 10,
                              lineend = "round"),
-    axis.ticks = ggplot2::element_line(size = base_size / 15,
+    axis.ticks = ggplot2::element_line(size = base_size / 10,
                               lineend = "round",
                               colour = "black"),
     panel.border = ggplot2::element_rect(fill = "transparent", color = NA),
     panel.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the panel
     plot.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the plot
     legend.background = ggplot2::element_rect(fill = "transparent", color = NA), # get rid of legend bg
-    legend.box.background = ggplot2::element_rect(fill = "transparent", color = NA) # get rid of legend panel bg
+    legend.box.background = ggplot2::element_rect(fill = "transparent", color = NA), # get rid of legend panel bg
+    legend.text=ggplot2::element_text(size = base_size * 0.8)
     # axis.title.x=ggplot2::element_blank()
 
 

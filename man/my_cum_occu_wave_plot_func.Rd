@@ -11,7 +11,7 @@ my_cum_occu_wave_plot_func(my_dataset, reffer_wave_thres, line_size = 1, ...)
 
 \item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.}
 
-\item{line_size}{Integer. the size of the lines to display. Defoult to 1.}
+\item{line_size}{Integer. the size of the lines to display. Default to 1.}
 
 \item{...}{Additional paramters to pass to the eastethic setting function \code{pptx_presentation_theme_func()}.}
 }
