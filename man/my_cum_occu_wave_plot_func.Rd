@@ -4,14 +4,16 @@
 \alias{my_cum_occu_wave_plot_func}
 \title{my_cum_occu_wave_plot_func}
 \usage{
-my_cum_occu_wave_plot_func(my_dataset, reffer_wave_thres, ...)
+my_cum_occu_wave_plot_func(my_dataset, reffer_wave_thres, line_size = 1, ...)
 }
 \arguments{
 \item{my_dataset}{A dataframe with raw data of waves.}
 
 \item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.}
 
-\item{...}{ational parameter to be passed to the aesthetic function \code{pptx_presentation_theme_func()}}
+\item{line_size}{Integer. the size of the lines to display. Defoult to 1.}
+
+\item{...}{Additional paramters to pass to the eastethic setting function \code{pptx_presentation_theme_func()}.}
 }
 \value{
 A ggplot object (list) ploting cumulative occurrence of waves in the different animals groups.
