@@ -9,11 +9,11 @@
 #' @details This take a ggplot2 object, usually a scatter plot and change the theme to almost totally clear.
 #' @examples # The example is still missing...
 #'
-pptx_presentation_theme_func <- function(base_size = 18){
+pptx_presentation_theme_func <- function(base_size = 26){
   structure(list(
-    axis.title = ggplot2::element_text(size = base_size * 1.2 ),
+    axis.title = ggplot2::element_text(size = base_size * 1.2),
                               # vjust = 1),
-    axis.text = ggplot2::element_text(size = base_size * 0.9 ,
+    axis.text = ggplot2::element_text(size = base_size ,
                              # vjust = 1,
                              colour = "black"),
     # panel.border = ggplot2::element_blank(),
@@ -22,9 +22,9 @@ pptx_presentation_theme_func <- function(base_size = 18){
     panel.grid.minor = ggplot2::element_blank(),
     # strip.background = ggplot2::element_blank(),
     strip.background = ggplot2::element_rect(fill = "transparent", color = NA),
-    strip.text = ggplot2::element_text(size = base_size * 0.8 ,
-                              face = "bold",
-                              vjust = 1),
+    strip.text.x = ggplot2::element_text(size = base_size,
+                                       face = "bold",
+                                       vjust = 1),
     axis.line = ggplot2::element_line(colour = "black",
                              size = base_size / 15,
                              lineend = "round"),
