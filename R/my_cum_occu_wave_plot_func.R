@@ -47,7 +47,7 @@ my_cum_occu_wave_plot_func <- function(my_dataset,
     pptx_presentation_theme_func(...) +
     ggplot2:: scale_colour_manual(values = c("#666666", "#CC0000")) +
     ggplot2::scale_y_continuous(labels = function(x){x*100}) +
-    ggplot2::labs(x = "Time (s)", y = paste("Cumulative", rlang::as_string(my_var),  "(%)")) +
+    # ggplot2::labs(x = "Time (s)", y = paste("Cumulative", rlang::as_string(my_var),  "(%)")) +
     ggplot2::theme(legend.position = c(0.9, 0.3))
 
   # theme(legend.key=element_blank())
