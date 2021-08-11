@@ -15,6 +15,9 @@
 #' @param animal_alpha A double. Value assigned to the transparency of the dots. Default to `0.6`.
 #' @param base_font_size A integer. Modify the size of the fonts. Default to 15.
 #' @param ... Pass additional parameters to the internla plot layers.
+#' @param jitter_width_wave Double. Determine the size of spread of the scatter points for waves.
+#' @param jitter_width_cell Double. Determine the size of spread of the scatter points for cells.
+#' @param jitter_width_animal Double. Determine the size of spread of the scatter points for animal.
 #'
 #' @return A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
 #' @export
@@ -32,6 +35,9 @@ superplot_func <- function(dataset,
                            animal_size = 5,
                            animal_alpha = 0.6,
                            base_font_size = 15,
+                           jitter_width_wave = 3,
+                           jitter_width_cell = 3,
+                           jitter_width_animal = 3,
                            ...){
 
   ####################################################################################
@@ -57,21 +63,21 @@ superplot_func <- function(dataset,
           cells = superplot <- superplot %>%
             cell_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
-                                         jitter_width = 3,
+                                         jitter_width = jitter_width_cell,
                                          cell_alpha = cell_alpha,
                                          cell_size = cell_size),
 
           waves = superplot <- superplot %>%
             wave_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
-                                         jitter_width = 3,
+                                         jitter_width = jitter_width_wave,
                                          wave_size = wave_size,
                                          wave_alpha = wave_alpha),
 
           waves_and_cells = superplot <- superplot %>%
             wave_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
-                                         jitter_width = 3,
+                                         jitter_width = jitter_width_animal,
                                          wave_size = wave_size,
                                          wave_alpha = wave_alpha) %>%
             cell_layer_point_ggplot_func(dataset = dataset,

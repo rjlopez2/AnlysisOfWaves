@@ -17,6 +17,9 @@ superplot_func(
   animal_size = 5,
   animal_alpha = 0.6,
   base_font_size = 15,
+  jitter_width_wave = 3,
+  jitter_width_cell = 3,
+  jitter_width_animal = 3,
   ...
 )
 }
@@ -44,6 +47,12 @@ superplot_func(
 \item{animal_alpha}{A double. Value assigned to the transparency of the dots. Default to \code{0.6}.}
 
 \item{base_font_size}{A integer. Modify the size of the fonts. Default to 15.}
+
+\item{jitter_width_wave}{Double. Determine the size of spread of the scatter points for waves.}
+
+\item{jitter_width_cell}{Double. Determine the size of spread of the scatter points for cells.}
+
+\item{jitter_width_animal}{Double. Determine the size of spread of the scatter points for animal.}
 
 \item{...}{Pass additional parameters to the internla plot layers.}
 }
