@@ -9,6 +9,9 @@
 #' @param faceted_by_2 A string. Aditional grouping variables for visualization. Default to `.`.
 #' @param y_limits A double. Optional paramter to set the upper y limit to your plot.
 #' @param line_size Integer. the size of the lines to display. Default to 1.
+#' @param trim Logic. shall the edges of the violin plots be cutted off?. Default to FALSE
+#' @param scaled_to Character string. If "area" (default), all violins have the same area (before trimming the tails). If "count", areas are scaled proportionally to the number of observations. If "width", all violins have the same maximum width.
+#' @param adjusted Double. A multiplicate bandwidth adjustment. This makes it possible to adjust the bandwidth while still using the a bandwidth estimator. For example, adjust = 1/2 means use half of the default bandwidth.
 #'
 #' @importFrom methods missingArg
 #' @return A ggplot object with a violin plot canvas to add additional layers.
@@ -21,7 +24,10 @@ wave_layer_vio_ggplot_func <- function(dataset,
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = ".",
                                        y_limits,
-                                       line_size = 1){
+                                       line_size = 1,
+                                       trim = FALSE,
+                                       scaled_to = "width",
+                                       adjusted = 1){
 
   ####################################################################################
   ### this function make single waves violin plot with the raw data
@@ -38,7 +44,10 @@ wave_layer_vio_ggplot_func <- function(dataset,
                                  y = {{yaxe}})) +
     ggplot2::geom_violin(ggplot2::aes(color = {{xaxe}}),
                          size = line_size,
-                         fill = NA) +
+                         fill = NA,
+                         trim = trim,
+                         scale = scaled_to,
+                         adjust = adjusted) +
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) +
     ggplot2::scale_colour_manual(values = c("#666666", "#CC0000"))
 

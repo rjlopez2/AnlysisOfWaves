@@ -12,7 +12,10 @@ cell_layer_vio_ggplot_func(
   faceted_by_1 = "Condition",
   faceted_by_2 = ".",
   y_limits,
-  line_size = 1
+  line_size = 1,
+  trim = FALSE,
+  scaled_to = "width",
+  adjusted = 1
 )
 }
 \arguments{
@@ -31,6 +34,12 @@ cell_layer_vio_ggplot_func(
 \item{y_limits}{A double. Optional paramter to set the upper y limit to your plot.}
 
 \item{line_size}{Integer. the size of the lines to display. Default to 1.}
+
+\item{trim}{Logic. shall the edges of the violin plots be cutted off?. Default to FALSE}
+
+\item{scaled_to}{Character string. If "area" (default), all violins have the same area (before trimming the tails). If "count", areas are scaled proportionally to the number of observations. If "width", all violins have the same maximum width.}
+
+\item{adjusted}{Double. A multiplicate bandwidth adjustment. This makes it possible to adjust the bandwidth while still using the a bandwidth estimator. For example, adjust = 1/2 means use half of the default bandwidth.}
 }
 \value{
 A ggplot object with a violin plot canvas to add additional layers.
