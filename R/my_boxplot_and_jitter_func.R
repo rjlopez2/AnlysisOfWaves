@@ -13,7 +13,8 @@
 #' @param .alpha Double. Define transparency for your scatter points.
 #' @param .dot_size Double. Define the size of the scatter points.
 #' @param base_font_size A integer. Modify the size of the fonts. Default to 22.
-#' @param y_limits A double. Optional paramter to set the upper y limit to your plot.
+#' @param y_limits A double. Optional parameter to set the upper y limit to your plot.
+#' @param compare_means Logic. Shall the mean of the groups be compared? This perform non-paired test using the Wilcoxon-test. Default to FALSE.
 #'
 #' @importFrom methods missingArg
 #' @return A ggplot object with boxplot + jitter scatter plot.
@@ -31,7 +32,8 @@ my_boxplot_and_jitter_func <- function(dataset,
                                        .alpha = 0.25,
                                        .dot_size = 2.5,
                                        base_font_size = 22,
-                                       y_limits) {
+                                       y_limits,
+                                       compare_means = FALSE) {
 
   scatt_color <- paste0("interaction(", paste0(scatt_color, collapse =  ", "), ")")
   box_color <- paste0("interaction(", paste0(box_color, collapse =  ", "), ")")
@@ -56,11 +58,23 @@ my_boxplot_and_jitter_func <- function(dataset,
                         alpha = .alpha,
                         position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
                                                                  seed = 999),
-                        show.legend = F) +
-    ggpubr::stat_compare_means(paired = F, # this compute p.values
-                               show.legend = F,
-                               # label = "p.signif", # this shows the "*" symbols significance code
-                               label.x.npc = "centre") +
+                        show.legend = F)  +
+    ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
+    # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
+    ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as default color for Animals
+    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000")) + # set to red and black as default color for Animals
+    # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
+    pptx_presentation_theme_func(base_font_size)
+
+  if(compare_means){
+
+    my_plot_element <- my_plot_element +
+      ggpubr::stat_compare_means(paired = F, # this compute p.values
+                                 show.legend = F,
+                                 # label = "p.signif", # this shows the "*" symbols significance code
+                                 label.x.npc = "centre")
+  }
+
     # size = 5) +
     # symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1),
     #                    symbols = c("****", "***", "**", "*", "ns"))) +
@@ -70,13 +84,6 @@ my_boxplot_and_jitter_func <- function(dataset,
     #              vjust = -0.7,
     #              show.legend = F,
     #              aes( label = round(..y.., digits = 2))) +
-
-    ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
-    # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
-    ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
-    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000")) + # set to red and black as defoult color for Animals
-    # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
-    pptx_presentation_theme_func(base_font_size)
 
   if(!missingArg(y_limits)){
 

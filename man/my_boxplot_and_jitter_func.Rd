@@ -16,7 +16,8 @@ my_boxplot_and_jitter_func(
   .alpha = 0.25,
   .dot_size = 2.5,
   base_font_size = 22,
-  y_limits
+  y_limits,
+  compare_means = FALSE
 )
 }
 \arguments{
@@ -42,7 +43,9 @@ my_boxplot_and_jitter_func(
 
 \item{base_font_size}{A integer. Modify the size of the fonts. Default to 22.}
 
-\item{y_limits}{A double. Optional paramter to set the upper y limit to your plot.}
+\item{y_limits}{A double. Optional parameter to set the upper y limit to your plot.}
+
+\item{compare_means}{Logic. Shall the mean of the groups be compared? This perform non-paired test using the Wilcoxon-test. Default to FALSE.}
 }
 \value{
 A ggplot object with boxplot + jitter scatter plot.
