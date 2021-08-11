@@ -40,7 +40,8 @@ pptx_presentation_theme_func <- function(base_size = 26){
     plot.background = ggplot2::element_rect(fill = "transparent", color = NA), # bg of the plot
     legend.background = ggplot2::element_rect(fill = "transparent", color = NA), # get rid of legend bg
     legend.box.background = ggplot2::element_rect(fill = "transparent", color = NA), # get rid of legend panel bg
-    legend.text=ggplot2::element_text(size = base_size * 0.8)
+    legend.text=ggplot2::element_text(size = base_size * 0.8),
+    panel.spacing = ggplot2::unit(1.5, "lines") # set space between panels in faceted plots
     # axis.title.x=ggplot2::element_blank()
 
 
