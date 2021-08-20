@@ -53,8 +53,24 @@ wave_layer_vio_ggplot_func <- function(dataset,
 
   if(!missingArg(y_limits)){
 
-    base_plot <- base_plot +
-      ggplot2::coord_cartesian(ylim = c(0, y_limits))
+    attempt::stop_if(!is.double(y_limits), msg = "Invalid vlaue. You must provide a value of type double to the argument y_limits.")
+
+    if(length(y_limits) == 1){
+
+      base_plot <- base_plot +
+        ggplot2::coord_cartesian(ylim = c(0, y_limits))
+    }
+
+    if(length(y_limits) == 2){
+
+      base_plot <- base_plot +
+        ggplot2::coord_cartesian(ylim = y_limits)
+    }
+
+    if(length(y_limits) > 2){
+      stop("You must provide a vector of maximun length == 2  to the argument y_limits.")
+    }
+
   }
 
 

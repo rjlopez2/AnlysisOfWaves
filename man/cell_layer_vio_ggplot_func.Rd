@@ -12,6 +12,7 @@ cell_layer_vio_ggplot_func(
   faceted_by_1 = "Condition",
   faceted_by_2 = ".",
   y_limits,
+  alpha_line = 1,
   line_size = 1,
   trim = FALSE,
   scaled_to = "width",
@@ -29,11 +30,13 @@ cell_layer_vio_ggplot_func(
 
 \item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition}.}
 
-\item{faceted_by_2}{A string. Aditional grouping variables for visualization. Default to \code{.}.}
+\item{faceted_by_2}{A string. Additional grouping variables for visualization. Default to \code{.}.}
 
-\item{y_limits}{A double. Optional paramter to set the upper y limit to your plot.}
+\item{y_limits}{A pair or single double value. Optional parameter to set the upper and lower y axis limit of your plot. If a single value provided, it will be used as upper limit.}
 
-\item{line_size}{Integer. the size of the lines to display. Default to 1.}
+\item{alpha_line}{Double. Adjust transparency to the violin line.}
+
+\item{line_size}{Integer. the size of the lines to display.}
 
 \item{trim}{Logic. shall the edges of the violin plots be cutted off?. Default to FALSE}
 
