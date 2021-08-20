@@ -4,7 +4,7 @@
 #'
 #' @param my_dataset A dataframe with raw data of waves.
 #' @param reffer_wave_thres A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence. Default to 10.
-#' @param line_zize Integer. the size of the lines to display. Default to 1.
+#' @param line_size Integer. the size of the lines to display. Default to 1.
 #' @param ... additional parameter to be passed to the aesthetic function \code{pptx_presentation_theme_func()}
 #'
 #' @return A ggplot object with barplot of waves occurrence in the different animals groups.
@@ -13,7 +13,7 @@
 #' @examples # The example is still missing...
 my_occu_bar_plot_func <- function(my_dataset,
                                   reffer_wave_thres = 10,
-                                  line_zize = 1,
+                                  line_size = 1,
                                   ...){
 
   my_bar_plot <- my_dataset %>%
@@ -33,7 +33,7 @@ my_occu_bar_plot_func <- function(my_dataset,
     ggplot2::geom_bar(stat="identity",
                       color = "black",
                       ggplot2::aes(fill = .data$Animal),
-                      size = line_zize) +
+                      size = line_size) +
     ggplot2::facet_grid(. ~ .data$Condition) +
     ggplot2::scale_y_continuous(limits = c(0, 100)) +
     pptx_presentation_theme_func(...) +
