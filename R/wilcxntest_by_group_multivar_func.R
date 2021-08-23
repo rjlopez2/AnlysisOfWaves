@@ -7,6 +7,7 @@
 #' @param group_1 Character of one or more values. The name for the first grouping comparison variable. Default to `c("Treatment", "Condition")`.
 #' @param group_2 Character. The name for the second grouping comparison variable. Default to `"Animal"`.
 #' @param p_adj_met Character. One of the following methods p adjust methods: `c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"`. Defoult to `"BH`. for more info look at `p.adjust.methods`.
+#' @param round_to Integer. A value to indicate number of decimals to used in final output. Default to 2.
 #'
 #' @return a datatable with the output of the Wilcoxon test
 #' @export
@@ -17,7 +18,8 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
                                               my_var_set,
                                               group_1 = c("Treatment", "Condition"),
                                               group_2 = "Animal",
-                                              p_adj_met = "BH"){
+                                              p_adj_met = "BH",
+                                              round_to = 2){
   group_1 <- syms(group_1)
   group_2 <- sym(group_2)
 
@@ -38,7 +40,7 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
   result_table <- result_table %>%
     dplyr::rename(Parameter = .data$.y.) %>%
     mutate(p.adjust.method = p_adj_met) %>%
-    mutate(across(where(is.double), ~ round(.x, 1)))
+    mutate(across(where(is.double), ~ round(.x, round_to)))
 
   return(result_table)
 
