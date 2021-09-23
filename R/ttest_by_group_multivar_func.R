@@ -36,7 +36,7 @@ ttest_by_group_multivar_func <- function (my_dataset,
   })
   result_table <- result_table %>%
     dplyr::rename(Parameter = .data$.y.) %>%
-    # mutate(p.adjust.method = p_adj_met) %>%
+    mutate(p.adjust.method = p_adj_met) %>%
     mutate(across(where(is.double),
                   ~round(.x, round_to)))
   return(result_table)
