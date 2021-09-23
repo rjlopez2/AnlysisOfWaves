@@ -10,7 +10,8 @@ wilcxntest_by_group_multivar_func(
   group_1 = c("Treatment", "Condition"),
   group_2 = "Animal",
   p_adj_met = "BH",
-  round_to = 2
+  round_to = 2,
+  ...
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ wilcxntest_by_group_multivar_func(
 \item{p_adj_met}{Character. One of the following methods p adjust methods: \verb{c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"}. Defoult to \verb{"BH}. for more info look at \code{p.adjust.methods}.}
 
 \item{round_to}{Integer. A value to indicate number of decimals to used in final output. Default to 2.}
+
+\item{...}{Additional parameters passed to the function \code{rstatix::pairwise_wilcox_test()}.}
 }
 \value{
 a datatable with the output of the Wilcoxon test
