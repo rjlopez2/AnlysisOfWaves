@@ -8,6 +8,7 @@
 #' @param group_2 Character. The name for the second grouping comparison variable. Default to `"Animal"`.
 #' @param p_adj_met Character. One of the following methods p adjust methods: `c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"`. Defoult to `"BH`. for more info look at `p.adjust.methods`.
 #' @param round_to Integer. A value to indicate number of decimals to used in final output. Default to 2.
+#' @param ... Additional parameters passed to the function `rstatix::pairwise_wilcox_test()`.
 #'
 #' @return a datatable with the output of the Wilcoxon test
 #' @export
@@ -19,7 +20,8 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
                                               group_1 = c("Treatment", "Condition"),
                                               group_2 = "Animal",
                                               p_adj_met = "BH",
-                                              round_to = 2){
+                                              round_to = 2,
+                                              ...){
   group_1 <- syms(group_1)
   group_2 <- sym(group_2)
 
@@ -34,7 +36,8 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
                                      rstatix::pairwise_wilcox_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
                                                                    p.adjust.method = p_adj_met,
                                                                    detailed = TRUE,
-                                                                   paired = FALSE) # this was f**ing tricky to make it work -> check tidy evaluation and functions: "expr", "formula", "eval".
+                                                                   paired = FALSE,
+                                                                   ...) # this was f**ing tricky to make it work -> check tidy evaluation and functions: "expr", "formula", "eval".
                                  })
 
   result_table <- result_table %>%
