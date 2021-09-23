@@ -28,8 +28,9 @@ ttest_by_group_multivar_func <- function (my_dataset,
     my_var <- sym(my_var)
     my_dataset %>%
       group_by(across(any_of(group_1))) %>%
-      rstatix::t_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
+      rstatix::pairwise_t_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
                       detailed = TRUE,
+                      paired = FALSE,
                       p.adjust.method = p_adj_met,
                       ...)
   })
