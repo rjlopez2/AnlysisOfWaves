@@ -19,9 +19,7 @@ my_summ_stat_func <- function(my_dataset,
                               round_to = 2,
                               shapiro = "yes"){
 
-  numeric_cols_names <- my_dataset %>%
-    select(where(is.double)) %>%
-    names
+  ###### check for n datapoints <= 2 to allow Shapiro test of normality    ######
 
   test_minimal_n <- my_dataset %>%
     group_by(across(any_of(my_grouping_vars))) %>%
