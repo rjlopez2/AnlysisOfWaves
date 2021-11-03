@@ -29,7 +29,7 @@ my_summ_stat_func <- function(my_dataset,
     filter(across(where(is.logical), ~ .x == T))
 
   if(dim(test_minimal_n)[1] != 0){
-    message("You have at least one variable with less than 2 datapoints.\nShapiro  test for normality requires n >= 2. It will not be assesed!")
+    message("You have at least one variable with 2 or less datapoints.\nShapiro test for normality check requires n > 2. Shapiro test will not be assesed!")
     shapiro = "no"
 
   }
