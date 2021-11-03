@@ -24,12 +24,12 @@ my_summ_stat_func <- function(my_dataset,
   test_minimal_n <- my_dataset %>%
     group_by(across(any_of(my_grouping_vars))) %>%
     summarise(across(where(is.double),
-                     ~ n() <= 2),
+                     ~ n() <= 3),
               .groups = "drop") %>%
     filter(across(where(is.logical), ~ .x == T))
 
   if(dim(test_minimal_n)[1] != 0){
-    message("You have at least one variable with 2 or less datapoints.\nShapiro test for normality check requires n > 2. Shapiro test will not be assesed!")
+    message("You have at least one variable with 2 or less datapoints.\nShapiro test for normality check requires n == 3 or more. Shapiro test will not be assesed!")
     shapiro = "no"
 
   }
