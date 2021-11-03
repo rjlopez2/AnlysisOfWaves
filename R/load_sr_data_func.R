@@ -26,12 +26,17 @@ load_sr_data_func <- function(my_dir){
 
 # create set to factor other variables
   my_data <- my_data %>%
-    mutate(across(c(.data$Experiment:.data$Linescan, .data$Animal_No), factor)) %>%
-    mutate(Animal = factor(.data$Animal, levels = c("CPVT-WT", "CPVT-HET"))) %>%
-    mutate(Condition = factor(.data$Condition,
-                              levels = c("Control", "Fab", "cAMP", "Vehicle"))) %>%
-    mutate(Treatment = factor(.data$Treatment,
-                              levels = c("cAMP", "Fab", "Vehicle")))
+    mutate(across(c(.data$Experiment:.data$Animal_No), factor)) %>%
+    mutate(Animal = forcats::fct_relevel(.data$Animal,
+                                     c("CPVT-WT", "CPVT-HET"),
+                                     after = 0)) %>%
+    mutate(Condition = forcats::fct_relevel(.data$Condition,
+                              c("Control", "Fab", "cAMP", "Vehicle"),
+                              after = 0)) %>%
+    mutate(Treatment = forcats::fct_relevel(.data$Treatment,
+                              c("cAMP", "Fab", "Vehicle"),
+                              after = 0)) %>%
+    mutate(Date = as.character(.data$Date))
 
   remove(file_list)
 
