@@ -32,7 +32,8 @@ Imports:
     ggbeeswarm,
     ggnewscale,
     attempt,
-    methods
+    methods,
+    readxl
 Suggests: 
     testthat
 Depends: 
