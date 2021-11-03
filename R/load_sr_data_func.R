@@ -12,24 +12,28 @@ load_sr_data_func <- function(my_dir){
     list.files(., pattern = "DataTable\\.xlsx$", full.names = TRUE)
   #print(file_list)
   my_data <- purrr::map_dfr(file_list, function(file){
-    print(c("reading file :", file))
+    cat(paste("reading file ---->>>>", file, sep = "\n"))
 
     full_data <- readxl::read_xlsx(file, sheet = 4, col_names = TRUE, skip = 2)
   })
 
+# create TExperiment variable
   my_data$Experiment <- str_sub(my_data$filename, start = 10, end = 15)
-  remove(file_list)
 
 
+# create Treatment factor
   my_data <- my_data %>% add_Treatment_factor_func()
 
+# create set to factor other variables
   my_data <- my_data %>%
-    mutate(across(c(my_data$Experiment:my_data$Linescan, my_data$Animal_No), factor)) %>%
-    mutate(Animal = factor(my_data$Animal, levels = c("CPVT-WT", "CPVT-HET"))) %>%
-    mutate(Condition = factor(my_data$Condition,
+    mutate(across(c(.data$Experiment:.data$Linescan, .data$Animal_No), factor)) %>%
+    mutate(Animal = factor(.data$Animal, levels = c("CPVT-WT", "CPVT-HET"))) %>%
+    mutate(Condition = factor(.data$Condition,
                               levels = c("Control", "Fab", "cAMP", "Vehicle"))) %>%
-    mutate(Treatment = factor(my_data$Treatment,
+    mutate(Treatment = factor(.data$Treatment,
                               levels = c("cAMP", "Fab", "Vehicle")))
+
+  remove(file_list)
 
   return(my_data)
 
