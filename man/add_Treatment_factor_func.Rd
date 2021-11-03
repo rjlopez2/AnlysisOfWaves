@@ -4,10 +4,10 @@
 \alias{add_Treatment_factor_func}
 \title{add_Treatment_factor_func}
 \usage{
-add_Treatment_factor_func(my_freq_summarized_data)
+add_Treatment_factor_func(my_dataset)
 }
 \arguments{
-\item{my_freq_summarized_data}{Dataset without not \code{Treatment} factor defined.}
+\item{my_dataset}{Dataset without not \code{Treatment} factor defined.}
 }
 \value{
 the same dataset with the factor \code{Treatment}.
