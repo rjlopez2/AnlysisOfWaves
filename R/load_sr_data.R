@@ -9,7 +9,7 @@
 load_sr_data <- function(files_path){
 
   # file_list <- list.files(files_path, pattern  = "DataTable.xlsx", full.names = TRUE, recursive = TRUE)
-  file_list <- list.dirs.depth.n_func(files_path, 1) %>%
+  file_list <- list_dirs_depth_n_func(files_path, 1) %>%
     list.files(., pattern = "DataTable\\.xlsx$", full.names = TRUE)
   #print(file_list)
   my_data <- lapply(file_list, function(file){
