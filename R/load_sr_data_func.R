@@ -24,10 +24,12 @@ load_sr_data_func <- function(my_dir){
   my_data <- my_data %>% add_Treatment_factor_func()
 
   my_data <- my_data %>%
-    mutate(across(c(Experiment:Linescan, Animal_No), factor)) %>%
-    mutate(Animal = factor(Animal, levels = c("CPVT-WT", "CPVT-HET"))) %>%
-    mutate(Condition = factor(Condition, levels = c("Control", "Fab", "cAMP", "Vehicle")) %>%
-    mutate(Treatment = factor(Treatment, levels = c("cAMP", "Fab", "Vehicle"))
+    mutate(across(c(my_data$Experiment:my_data$Linescan, my_data$Animal_No), factor)) %>%
+    mutate(Animal = factor(my_data$Animal, levels = c("CPVT-WT", "CPVT-HET"))) %>%
+    mutate(Condition = factor(my_data$Condition,
+                              levels = c("Control", "Fab", "cAMP", "Vehicle"))) %>%
+    mutate(Treatment = factor(my_data$Treatment,
+                              levels = c("cAMP", "Fab", "Vehicle")))
 
   return(my_data)
 

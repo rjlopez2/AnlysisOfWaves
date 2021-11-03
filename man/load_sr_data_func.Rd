@@ -16,5 +16,5 @@ A datatframe with concatenated files of single experiments indicated in the sear
 load_sr_data_func
 }
 \examples{
-#exmaple is missing
+# example is missing
 }
