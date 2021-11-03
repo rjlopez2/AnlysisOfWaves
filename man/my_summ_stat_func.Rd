@@ -8,7 +8,8 @@ my_summ_stat_func(
   my_dataset,
   my_grouping_vars = c("Animal", "Treatment", "Condition"),
   Na_rm = TRUE,
-  round_to = 2
+  round_to = 2,
+  shapiro = "yes"
 )
 }
 \arguments{
@@ -19,12 +20,14 @@ my_summ_stat_func(
 \item{Na_rm}{Boolean. Shall Nas be removed for summary functions computation?. Default to TRUE.}
 
 \item{round_to}{Integer. A value to indicate number of decimals to used in final output. Default to 2.}
+
+\item{shapiro}{Character. asses shapiro wilk test for normality. Requiere dataset length bigger than 2, otherwise will raise a warning.}
 }
 \value{
 Return a dataframe with the mean, median, SD, SEM, number of elements analized (cells or wave), number of animals, and asses Normality of the distribution with the Shapiro-Wilk test.
 }
 \description{
-Compute the summary statistics of the multiples variables from the wave analysis of a previously cleaned dataset. Compute the \code{mean}, \code{sd}, \code{sem}, \code{median}, \code{n_Waves}, \code{n_Cells}, \code{n_Animals} and \code{Normality_Shapiro_p.} NOTE: Shapiro-Wilk test will fail if less than 2 samples!.
+Compute the summary statistics of numeric variables from a given dataset. Compute the \code{mean}, \code{sd}, \code{sem}, \code{median}, \code{n_Waves}, \code{n_Cells}, \code{n_Animals} and \code{Normality_Shapiro_p.} NOTE: Shapiro-Wilk test will fail if less than 2 samples!.
 }
 \examples{
 # the example is missing
