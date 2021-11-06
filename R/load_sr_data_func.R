@@ -26,6 +26,7 @@ load_sr_data_func <- function(my_dir){
 
 # create set to factor other variables
   my_data <- my_data %>%
+    mutate(For_Analysis <- T) %>% #create filtering variable
     mutate(across(c(.data$Experiment:.data$Animal_No), factor)) %>%
     mutate(Animal = forcats::fct_relevel(.data$Animal,
                                      c("CPVT-WT", "CPVT-HET"),
