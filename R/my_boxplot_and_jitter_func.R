@@ -25,7 +25,7 @@ my_boxplot_and_jitter_func <- function(dataset,
                                        xaxe = "Animal",
                                        yaxe,
                                        box_color  = "Animal",
-                                       scatt_color = "Animal",
+                                       scatt_color = box_color,
                                        faceted_by_1 = "Condition",
                                        faceted_by_2 = ".",
                                        jitter_width = 0.5,
@@ -52,8 +52,8 @@ my_boxplot_and_jitter_func <- function(dataset,
     #              show.legend = F) +
     ggplot2::geom_point(shape = 21,
                         size = .dot_size,
-                        ggplot2::aes_string(fill = box_color,
-                                            group = scatt_color),
+                        ggplot2::aes_string(fill = scatt_color, # Important that the fill is indeed the color for grouping the dots
+                                            group = box_color),
                         color = "black",
                         alpha = .alpha,
                         position = ggplot2::position_jitterdodge(jitter.width = jitter_width,  # add jitter
@@ -61,10 +61,18 @@ my_boxplot_and_jitter_func <- function(dataset,
                         show.legend = F)  +
     ggplot2::facet_grid(stats::reformulate(faceted_by_1, faceted_by_2)) + # facet by ...
     # labs(subtitle = get_test_label(, detailed = TRUE)) + # shows detailed legend on statistics
-    ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as default color for Animals
-    ggplot2::scale_fill_manual(values = c("#666666", "#CC0000")) + # set to red and black as default color for Animals
     # scale_x_discrete(labels = c("WT", "CPVT")) # rename x-axis
+      # set to red and black as default color for Animals
+    ggplot2::scale_colour_manual(values = c("#666666", "#CC0000")) + # set to red and black as default color for Animals in boxplot
+
     pptx_presentation_theme_func(base_font_size)
+
+
+  if(scatt_color == "interaction(Animal)"){
+    my_plot_element <- my_plot_element +
+      ggplot2::scale_fill_manual(values = c("#666666", "#CC0000"))  # set to red and black as default color for Animals in scatterplot
+
+  }
 
   if(compare_means){
 
