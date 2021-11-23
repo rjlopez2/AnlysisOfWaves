@@ -14,10 +14,12 @@ add_Treatment_factor_func <- function(my_dataset){
     nest() %>%
     # head %>%
     mutate(data = purrr::map(.data$data, ~ (.x %>% mutate(Treatment = case_when( "cAMP" %in% .data$Condition ~ "cAMP",
-                                                                    "Fab" %in% .data$Condition ~ "Fab",
-                                                                    "Vehicle" %in% .data$Condition ~ "Vehicle",
-                                                                    TRUE ~ "no_defined")) %>%
-                                 relocate(.data$Treatment, .before = .data$Condition)))) %>%
+                                                                                 "Fab" %in% .data$Condition ~ "Fab",
+                                                                                 # "Fab-cAMP" %in% .data$Condition ~ "Fab-cAMP", # this is not working because previos (Fab "alone") condition match ths one too. need a clever aproach.
+                                                                                 "Vehicle" %in% .data$Condition ~ "Vehicle",
+                                                                                 TRUE ~ "no_defined")) %>%
+
+                                              relocate(.data$Treatment, .before = .data$Condition)))) %>%
     # pluck("data", 4) %>%
     unnest(cols = .data$data) %>%
     ungroup()
