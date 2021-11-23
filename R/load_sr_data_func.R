@@ -12,8 +12,8 @@ load_sr_data_func <- function(my_dir){
     list_dirs_depth_n_func( 1) %>%
     list.files(., pattern = "DataTable\\.xlsx$", full.names = TRUE) %>%
     tibble(filename = .) %>%
-    filter(!str_detect(filename, pattern = "~")) %>%
-    pull(filename)
+    filter(!str_detect(.data$filename, pattern = "~")) %>%
+    pull(.data$filename)
   #print(file_list)
   my_data <- purrr::map_dfr(file_list, function(file){
     # message(paste("reading file ---->>>>", file, sep = "\n"))
