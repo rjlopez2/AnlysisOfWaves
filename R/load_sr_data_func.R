@@ -44,7 +44,8 @@ load_sr_data_func <- function(my_dir){
     mutate(Treatment = forcats::fct_relevel(.data$Treatment,
                               c("cAMP", "Fab", "Vehicle"),
                               after = 0)) %>%
-    mutate(Date = as.character(.data$Date))
+    mutate(Date = as.character(.data$Date)) %>%
+    mutate(SR_Baseline = abs(SR_Baseline)) # set all this column to positive numbers.
 
 
   remove(file_list)
