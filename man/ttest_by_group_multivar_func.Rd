@@ -11,6 +11,7 @@ ttest_by_group_multivar_func(
   group_2 = "Animal",
   round_to = 2,
   p_adj_met = "BH",
+  pairwise = TRUE,
   ...
 )
 }
@@ -27,7 +28,9 @@ ttest_by_group_multivar_func(
 
 \item{p_adj_met}{Character. One of the following methods p adjust methods: \verb{c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"}. Defoult to \verb{"BH}. for more info look at \code{p.adjust.methods}.}
 
-\item{...}{Additional parameters passed to the function \code{rstatix::t_test()}.}
+\item{pairwise}{Logical. If TRUE (the default) the function \code{rstatix::pairwise_t_test()} is used, else it will use the \code{rstatix::t_test()} function. Read documentation for the differences.}
+
+\item{...}{Additional parameters passed to the function \code{rstatix::pairwise_t_test()}.}
 }
 \value{
 a datatable with the output of the Wilcoxon test
