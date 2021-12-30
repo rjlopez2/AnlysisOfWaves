@@ -57,7 +57,7 @@ superplot_func <- function(dataset,
           stop("Invalid `base_violin` value. You must select a violin basic plot. Options are: 1. `waves`, 2. `cells`")
 
   )
-
+#nbk.n
   # create cell or wave dot plot layer, default to cells
   switch (dot_layer,
           cells = superplot <- superplot %>%
