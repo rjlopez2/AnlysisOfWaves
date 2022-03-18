@@ -22,7 +22,7 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
                                               p_adj_met = "BH",
                                               round_to = 2,
                                               ...){
-  group_1 <- syms(group_1)
+  # group_1 <- syms(group_1)
   group_2 <- sym(group_2)
 
 
@@ -32,7 +32,7 @@ wilcxntest_by_group_multivar_func <- function(my_dataset,
 
 
                                    my_dataset %>%
-                                     group_by(!!!group_1) %>%
+                                     group_by(across(any_of(group_1))) %>%
                                      rstatix::pairwise_wilcox_test(formula = stats::formula(expr(!!my_var ~ !!group_2)),
                                                                    p.adjust.method = p_adj_met,
                                                                    detailed = TRUE,
