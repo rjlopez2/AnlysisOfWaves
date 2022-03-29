@@ -7,6 +7,7 @@
 superplot_func(
   dataset,
   yaxe,
+  xaxe = "Animal",
   base_violin = "cells",
   dot_layer = "cells",
   animal_layer = TRUE,
@@ -27,6 +28,8 @@ superplot_func(
 \item{dataset}{A dataframe object. The dataset for analysis, eg wave kinetics or wave occurrence df.}
 
 \item{yaxe}{A string. The variable name of interest to plot.}
+
+\item{xaxe}{A string. The dependent variable for piloting. set to default to \code{"Animal"}.}
 
 \item{base_violin}{A string. Which base plot would you like to plot as a violin plot?. Options are: 1. \code{waves}, 2. \code{cells}. Default to \code{cells}.}
 
@@ -54,7 +57,7 @@ superplot_func(
 
 \item{jitter_width_animal}{Double. Determine the size of spread of the scatter points for animal.}
 
-\item{...}{Pass additional parameters to the internla plot layers.}
+\item{...}{Pass additional parameters to the internal plot layers.}
 }
 \value{
 A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.

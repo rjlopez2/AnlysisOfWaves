@@ -14,10 +14,11 @@
 #' @param animal_size A double. Value assigned to the size of the dots. Default to `5`.
 #' @param animal_alpha A double. Value assigned to the transparency of the dots. Default to `0.6`.
 #' @param base_font_size A integer. Modify the size of the fonts. Default to 15.
-#' @param ... Pass additional parameters to the internla plot layers.
+#' @param ... Pass additional parameters to the internal plot layers.
 #' @param jitter_width_wave Double. Determine the size of spread of the scatter points for waves.
 #' @param jitter_width_cell Double. Determine the size of spread of the scatter points for cells.
 #' @param jitter_width_animal Double. Determine the size of spread of the scatter points for animal.
+#' @param xaxe A string. The dependent variable for piloting. set to default to `"Animal"`.
 #'
 #' @return A ggplot object with a superplot indicating multiples layers of  Animals, cell or waves.
 #' @export
@@ -25,6 +26,7 @@
 #' @examples # the example is missing
 superplot_func <- function(dataset,
                            yaxe,
+                           xaxe = "Animal",
                            base_violin = "cells",
                            dot_layer = "cells",
                            animal_layer = TRUE,
@@ -49,15 +51,15 @@ superplot_func <- function(dataset,
   switch (base_violin,
 
           waves = superplot <- dataset %>%
-            wave_layer_vio_ggplot_func(yaxe = yaxe, ...),
+            wave_layer_vio_ggplot_func(yaxe = yaxe, xaxe, ...),
 
           cells = superplot <- dataset %>%
-            cell_layer_vio_ggplot_func(yaxe = yaxe, ...),
+            cell_layer_vio_ggplot_func(yaxe = yaxe, xaxe, ...),
 
           stop("Invalid `base_violin` value. You must select a violin basic plot. Options are: 1. `waves`, 2. `cells`")
 
   )
-#nbk.n
+  #nbk.n
   # create cell or wave dot plot layer, default to cells
   switch (dot_layer,
           cells = superplot <- superplot %>%
@@ -70,6 +72,7 @@ superplot_func <- function(dataset,
           waves = superplot <- superplot %>%
             wave_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
+                                         xaxe = xaxe,
                                          jitter_width = jitter_width_wave,
                                          wave_size = wave_size,
                                          wave_alpha = wave_alpha),
@@ -77,6 +80,7 @@ superplot_func <- function(dataset,
           waves_and_cells = superplot <- superplot %>%
             wave_layer_point_ggplot_func(dataset = dataset,
                                          yaxe = yaxe,
+                                         xaxe = xaxe,
                                          jitter_width = jitter_width_animal,
                                          wave_size = wave_size,
                                          wave_alpha = wave_alpha) %>%
@@ -99,6 +103,7 @@ superplot_func <- function(dataset,
     superplot <- superplot %>%
       animal_layer_point_ggplot_func(dataset = dataset,
                                      yaxe = yaxe,
+                                     xaxe = xaxe,
                                      animal_size = animal_size,
                                      animal_alpha = animal_alpha,
                                      jitter_width = 0) +
