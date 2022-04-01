@@ -4,6 +4,8 @@
 # AnlysisOfWaves
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/rjlopez2/AnlysisOfWaves/workflows/R-CMD-check/badge.svg)](https://github.com/rjlopez2/AnlysisOfWaves/actions)
 <!-- badges: end -->
 
 The goal of AnlysisOfWaves is to easily reproduce the analysis of Ca2+
@@ -31,8 +33,8 @@ wave_or_EAP_threshold <- 10 # Set time for highlighting the relative wave occurr
 
 df_waves_intact_cells %>%
   my_cum_occu_wave_plot_func(reffer_wave_thres = wave_or_EAP_threshold,
-                             base_size = 22)
-#> $cum_occu_plot
+                             my_var = "Wave_latency",
+                             base_size = 28, line_size = 2)
 ```
 
 <img src="man/figures/README-example-1.png" width="600px" />
