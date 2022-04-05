@@ -1,41 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@rjlopez2
-rjlopez2 /
-AnlysisOfWaves
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-remove specific OS dependency from Rnolan and add section to create r… R-CMD-check #8
-
-Summary
-
-    Workflow file
-
-Jobs
-macOS-latest (release)
-windows-latest (release)
-ubuntu-latest (devel)
-ubuntu-latest (release)
-
-    ubuntu-latest (oldrel-1)
-
-Workflow file for this run
-.github/workflows/R-CMD-check.yaml at d8b6866
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
@@ -86,6 +48,7 @@ jobs:
           done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "20.04"))')
           sudo apt-get install -y libwebp-dev
           sudo apt-get install -y libzstd-dev
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: rcmdcheck
