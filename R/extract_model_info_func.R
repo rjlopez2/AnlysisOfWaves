@@ -1,4 +1,4 @@
-#' extract_model_info
+#' extract_model_info_func
 #'
 #' Get information from a model object. This function is a wraper from the {broom} package to glance, tidy and augment the model object. Extract and display also different disgnostic tools for model: eg. LogLik, AIC, BIC.
 #'
@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples # example is missing.
-extract_model_info <- function(ns_df){
+extract_model_info_func <- function(ns_df){
   my_parameter_name <- sym(names(ns_df)[1])
   ns_df %>%
     # pivot_longer(cols = ends_with("model"),
