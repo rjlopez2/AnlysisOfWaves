@@ -34,7 +34,9 @@ Imports:
     attempt,
     methods,
     readxl,
-    qqplotr
+    qqplotr,
+    broom,
+    car
 Suggests: 
     testthat (>= 3.0.0)
 Depends: 
