@@ -4,10 +4,18 @@
 \alias{my_occu_bar_plot_func}
 \title{my_occu_bar_plot_func}
 \usage{
-my_occu_bar_plot_func(my_dataset, reffer_wave_thres = 10, line_size = 1, ...)
+my_occu_bar_plot_func(
+  my_dataset,
+  my_var = "value",
+  reffer_wave_thres = 10,
+  line_size = 1,
+  ...
+)
 }
 \arguments{
 \item{my_dataset}{A dataframe with raw data of waves.}
+
+\item{my_var}{A character string of length 1. The name of the variable you want to make the barplot. This should be wave occurrence or something similar. Default to \code{"value"}.}
 
 \item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence. Default to 10.}
 
