@@ -16,15 +16,15 @@ my_cum_occu_wave_plot_func(
 \arguments{
 \item{my_dataset}{A dataframe with raw data of waves.}
 
-\item{my_var}{A  character string of length 1. The name of the variable you wabt to plot the cumulative distribution.}
+\item{my_var}{A  character string of length 1. The name of the variable you want to plot the cumulative distribution.}
 
 \item{reffer_wave_thres}{A double. Reference value in seconds indicating the threshold for the calculus of cumulative waves occurrence.}
 
 \item{line_size}{Integer. the size of the lines to display. Default to 1.}
 
-\item{reference_line}{Logic. Should you add a reference veertical line?}
+\item{reference_line}{Logic. Should you add a reference vertical line?}
 
-\item{...}{Additional paramters to pass to the eastethic setting function \code{pptx_presentation_theme_func()}.}
+\item{...}{Additional parameters to pass to the aesthetic setting function \code{pptx_presentation_theme_func()}.}
 }
 \value{
 A ggplot object (list) ploting cumulative occurrence of waves in the different animals groups.
