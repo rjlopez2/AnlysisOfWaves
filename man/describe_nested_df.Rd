@@ -4,12 +4,21 @@
 \alias{describe_nested_df}
 \title{Make summary statistics on nested dataset}
 \usage{
-describe_nested_df(nested_df, targed_dataset = "data")
+describe_nested_df(
+  nested_df,
+  targed_dataset = "data",
+  faceted_by_1 = "Condition",
+  faceted_by_2 = "."
+)
 }
 \arguments{
 \item{nested_df}{A nested dataset. Ideally, previously grouped by the paramters of interes to be analyzed. Eg. wave frequency, wave latency, amplitude, etc.}
 
 \item{targed_dataset}{Character. the column name of the dataset to perform the summary. By default uses the colum named \code{"data"} containing the raw dataset, but if you have transformed data e.ge logarithmic, centered, etc., you can input the name of such column.}
+
+\item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition}.}
+
+\item{faceted_by_2}{A string. Aditional grouping variables for visualization. Default to \code{.}.}
 }
 \value{
 A nested dataframe with the additional columns: "Described", "outliers" and "qqplots" for the given input dataframe.
