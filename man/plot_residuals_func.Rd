@@ -4,12 +4,21 @@
 \alias{plot_residuals_func}
 \title{plot_residuals_func}
 \usage{
-plot_residuals_func(model_nsdf, augmented_df = "augment")
+plot_residuals_func(
+  model_nsdf,
+  augmented_df = "augment",
+  faceted_by_1 = "Condition  + Animal",
+  faceted_by_2 = "."
+)
 }
 \arguments{
 \item{model_nsdf}{A nested df containing a model object and previously processed with the \code{extract_model_info()} function.}
 
 \item{augmented_df}{The column name containing the df with the fit vs residuals values of the model. By defoult this columns in named \code{"augment"}.}
+
+\item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition + Animal}.}
+
+\item{faceted_by_2}{A string. Aditional grouping variables for visualization. Default to \code{.}.}
 }
 \value{
 A new colum called \code{res_vs_fit_plot} containing ggplot objets with the residual plots of the model.
