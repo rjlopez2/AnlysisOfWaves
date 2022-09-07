@@ -30,3 +30,15 @@ extract_model_info_func <- function(ns_df){
                                                 car::Anova() %>%
                                                 broom::tidy())))
 }
+
+function (ns_df){
+  my_parameter_name <- sym(names(ns_df)[1])
+  ns_df %>% mutate(across(.data$model, list(glance = ~purrr::map(.x,
+                                                                 ~broom::glance(.x)), tidy = ~purrr::map(.x, ~broom::tidy(.x)),
+                                            augment = ~purrr::map(.x, ~broom::augment(.x))), .names = "{.fn}")) %>%
+    mutate(logLik = (.data$glance %>% purrr::map_dbl(~.x$logLik *
+                                                       -2)), AIC = (.data$glance %>% purrr::map_dbl(~.x$AIC)),
+           BIC = (.data$glance %>% purrr::map_dbl(~.x$BIC)),
+           p_val = purrr::map(.data$model, ~(.x %>% car::Anova() %>%
+                                               broom::tidy())))
+}

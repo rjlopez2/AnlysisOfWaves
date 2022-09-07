@@ -14,17 +14,20 @@ plot_residuals_func(
 \arguments{
 \item{model_nsdf}{A nested df containing a model object and previously processed with the \code{extract_model_info()} function.}
 
-\item{augmented_df}{The column name containing the df with the fit vs residuals values of the model. By defoult this columns in named \code{"augment"}.}
+\item{augmented_df}{The column name containing the df with the fit vs residuals values of the model. By default this columns in named \code{"augment"}.}
 
 \item{faceted_by_1}{A string. Grouping variables for visualization. Default to \code{Condition + Animal}.}
 
-\item{faceted_by_2}{A string. Aditional grouping variables for visualization. Default to \code{.}.}
+\item{faceted_by_2}{A string. Additional grouping variables for visualization. Default to \code{.}.}
 }
 \value{
-A new colum called \code{res_vs_fit_plot} containing ggplot objets with the residual plots of the model.
+A new column called \code{res_vs_fit_plot} containing ggplot objects with the residual plots of the model.
 }
 \description{
 This functions take a nested df containing a model information including the column \code{augment} and return the residuals for a given model. Use this function chained with the \code{extract_model_info()}.
+}
+\note{
+Make sure that the column of with your variable names are named \code{Parameters} or \code{variables} otherwise the plot names will crash. Similarly, name your column with the name of the model as \code{model_name} or could output unexpected results.
 }
 \examples{
 # No run
